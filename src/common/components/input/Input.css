@@ -3,6 +3,7 @@
   border: none;
   text-align: center;
   font-weight: bold;
+  background-color: transparent;
 }
 
 .input-field:focus {
@@ -10,6 +11,30 @@
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-.input-field::placeholder {
+.input-field.text-blue::placeholder {
   color: var(--main-blue);
+}
+
+.input-field.text-green::placeholder {
+  color: var(--main-green);
+}
+
+.input-field.text-yellow::placeholder {
+  color: var(--main-yellow);
+}
+
+.input-field.text-orange::placeholder {
+  color: var(--main-orange);
+}
+
+.input-field.text-red::placeholder {
+  color: var(--main-red);
+}
+
+.input-field.text-grey::placeholder {
+  color: var(--main-grey);
+}
+
+.input-field.text-white::placeholder {
+  color: var(--main-white);
 }
