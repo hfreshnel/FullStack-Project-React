@@ -7,9 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "lint": "tslint --project tsconfig.json",
     "format": "prettier --write '**/*.{ts,tsx,js,json,scss,md}'",
-    "lint:fix": "npm run lint && npm run format"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.17.0",
