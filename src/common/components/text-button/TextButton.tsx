@@ -3,7 +3,7 @@ import './TextButton.css';
 import { Color } from '../../utils/Colors.tsx';
 import { Size } from '../../utils/Size.tsx';
 
-interface MainButtonProps {
+interface MainButtonProps extends React.ButtonHTMLAttributes<HTMLElement> {
   label: string;
   bgColor: Color;
   textColor: Color;

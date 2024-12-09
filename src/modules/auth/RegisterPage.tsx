@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
-import TextInput from '../../common/components/input/TextInput';
-import PasswordInput from '../../common/components/input/PasswordInput';
-import EmailInput from '../../common/components/input/EmailInput';
+import Input from '../../common/components/input/Input';
 import TextButton from '../../common/components/text-button/TextButton.tsx';
-import { Color } from '../../common/utils/Colors.tsx';
+import { InputType } from '../../common/utils/InputType.tsx';
 import { Size } from '../../common/utils/Size.tsx';
+import { Color } from '../../common/utils/Colors.tsx';
 
 const RegisterPage: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     name: '',
     firstName: '',
     email: '',
     password: '',
   });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +26,7 @@ const RegisterPage: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        backgroundColor: '#f8fafc',
+        backgroundColor: '#f8fafc', // Couleur de fond moderne
         padding: '20px',
       }}
     >
@@ -50,40 +44,45 @@ const RegisterPage: React.FC = () => {
           backgroundColor: '#ffffff',
           padding: '30px',
           borderRadius: '12px',
-          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)', // Ombre plus moderne
+          transition: 'transform 0.3s ease-in-out',
         }}
       >
-        <TextInput
+        <Input
           label='Nom'
+          type={InputType.TEXT}
           placeholder='Votre nom'
+          bgColor={Color.WHITE}
+          textColor={Color.GREY}
+          inputSize={Size.MEDIUM}
           value={formData.name}
-          onChange={e =>
-            handleChange({ ...e, target: { ...e.target, name: 'name' } })
-          }
         />
-        <TextInput
+        <Input
           label='Prénom'
+          type={InputType.TEXT}
           placeholder='Votre prénom'
+          bgColor={Color.WHITE}
+          textColor={Color.GREY}
+          inputSize={Size.MEDIUM}
           value={formData.firstName}
-          onChange={e =>
-            handleChange({ ...e, target: { ...e.target, name: 'firstName' } })
-          }
         />
-        <EmailInput
+        <Input
           label='Email'
+          type={InputType.EMAIL}
           placeholder='Votre email'
+          bgColor={Color.WHITE}
+          textColor={Color.GREY}
+          inputSize={Size.MEDIUM}
           value={formData.email}
-          onChange={e =>
-            handleChange({ ...e, target: { ...e.target, name: 'email' } })
-          }
         />
-        <PasswordInput
+        <Input
           label='Mot de passe'
+          type={InputType.PASSWORD}
           placeholder='Votre mot de passe'
+          bgColor={Color.WHITE}
+          textColor={Color.GREY}
+          inputSize={Size.MEDIUM}
           value={formData.password}
-          onChange={e =>
-            handleChange({ ...e, target: { ...e.target, name: 'password' } })
-          }
         />
         <TextButton
           label="S'inscrire"
