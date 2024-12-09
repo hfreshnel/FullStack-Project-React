@@ -24,10 +24,9 @@ const RegisterPage: React.FC = () => {
           gap: '20px',
           width: '100%',
           maxWidth: '400px',
-          backgroundColor: '#ffffff',
+          backgroundColor: 'f8fafc',
           padding: '30px',
           borderRadius: '12px',
-          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
         }}
       >
         <Input
