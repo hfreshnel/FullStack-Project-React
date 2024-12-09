@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginForm from './modules/auth/LoginPage.tsx';
+import LoginForm from './modules/auth/LoginForm.tsx';
 
 const App: React.FC = () => {
   return (
