@@ -1,7 +1,7 @@
 import React from 'react';
 import './TextButton.css';
-import { Color } from '../../utils/Color.tsx';
-import { Size } from '../../utils/Size.tsx';
+import { Size } from '../../enums/Size.ts';
+import { Color } from '../../enums/Color.ts';
 
 interface MainButtonProps {
   label: string;
