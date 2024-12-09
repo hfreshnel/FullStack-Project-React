@@ -1,11 +1,11 @@
 :root {
-    --main-blue: #0023b1;
-    --main-green: #3bb100;
-    --main-yellow: #b19400;
-    --main-orange: #b15e00;
-    --main-red: #b10f00;
-    --main-grey: #afafaf;
-    --main-white: #ffffff;
+    --primary-blue: #0023b1;
+    --primary-green: #3bb100;
+    --primary-yellow: #b19400;
+    --primary-orange: #b15e00;
+    --primary-red: #b10f00;
+    --primary-grey: #afafaf;
+    --primary-white: #FFFFFF;
 
     --secondary-white: #ededed;
 }
@@ -37,85 +37,85 @@ body {
 }
 
 .bg-blue {
-    background-color: var(--main-blue);
+    background-color: var(--primary-blue);
 }
 
 .bg-green {
-    background-color: var(--main-green);
+    background-color: var(--primary-green);
 }
 
 .bg-yellow {
-    background-color: var(--main-yellow);
+    background-color: var(--primary-yellow);
 }
 
 .bg-orange {
-    background-color: var(--main-orange);
+    background-color: var(--primary-orange);
 }
 
 .bg-red {
-    background-color: var(--main-red);
+    background-color: var(--primary-red);
 }
 
 .bg-grey {
-    background-color: var(--main-grey);
+    background-color: var(--primary-grey);
 }
 
 .bg-white {
-    background-color: var(--main-white);
+    background-color: var(--primary-white);
 }
 
 .text-blue {
-    color: var(--main-blue);
+    color: var(--primary-blue);
 }
 
 .text-green {
-    color: var(--main-green);
+    color: var(--primary-green);
 }
 
 .text-yellow {
-    color: var(--main-yellow);
+    color: var(--primary-yellow);
 }
 
 .text-orange {
-    color: var(--main-orange);
+    color: var(--primary-orange);
 }
 
 .text-red {
-    color: var(--main-red);
+    color: var(--primary-red);
 }
 
 .text-grey {
-    color: var(--main-grey);
+    color: var(--primary-grey);
 }
 
 .text-white {
-    color: var(--main-white);
+    color: var(--primary-white);
 }
 
 .border-blue {
-    border: 3px solid var(--main-blue);
+    border: 3px solid var(--primary-blue);
 }
 
 .border-green {
-    border: 3px solid var(--main-green);
+    border: 3px solid var(--primary-green);
 }
 
 .border-yellow {
-    border-color: 3px solid var(--main-yellow);
+    border-color: 3px solid var(--primary-yellow);
 }
 
 .border-orange {
-    border-color: 3px solid var(--main-orange);
+    border-color: 3px solid var(--primary-orange);
 }
 
 .border-red {
-    border-color: 3px solid var(--main-red);
+    border-color: 3px solid var(--primary-red);
 }
 
 .border-grey {
-    border-color: 3px solid var(--main-grey);
+    border-color: 3px solid var(--primary-grey);
 }
 
 .border-white {
-    border-color: 3px solid var(--main-white);
+    border-color: 3px solid var(--primary-white);
 }

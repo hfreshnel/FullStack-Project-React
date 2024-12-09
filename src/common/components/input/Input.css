@@ -12,29 +12,29 @@
 }
 
 .input-field.text-blue::placeholder {
-  color: var(--main-blue);
+  color: var(--primary-blue);
 }
 
 .input-field.text-green::placeholder {
-  color: var(--main-green);
+  color: var(--primary-green);
 }
 
 .input-field.text-yellow::placeholder {
-  color: var(--main-yellow);
+  color: var(--primary-yellow);
 }
 
 .input-field.text-orange::placeholder {
-  color: var(--main-orange);
+  color: var(--primary-orange);
 }
 
 .input-field.text-red::placeholder {
-  color: var(--main-red);
+  color: var(--primary-red);
 }
 
 .input-field.text-grey::placeholder {
-  color: var(--main-grey);
+  color: var(--primary-grey);
 }
 
 .input-field.text-white::placeholder {
-  color: var(--main-white);
+  color: var(--primary-white);
 }

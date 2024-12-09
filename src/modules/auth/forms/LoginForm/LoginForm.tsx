@@ -1,5 +1,6 @@
 import Input from '../../../../common/components/input/Input.tsx';
 import { InputType } from '../../../../common/enums/InputType.ts';
+import { Size } from '../../../../common/enums/Size.ts';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import { Color } from '../../../../common/enums/Color.ts';
 import './LoginForm.css';
