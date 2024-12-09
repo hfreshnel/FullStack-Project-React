@@ -6,7 +6,7 @@ import useFetchData from '../../../../common/hooks/useFetchData';
 import SignUpForm from '../../forms/SignUpForm/SignUpForm';
 
 /**
- * Add a loading, error and success state
+ * Add a behaviour when loading, success and error
  * Functions calling repositories should be defined in the container and passed to the component like handleSignup here
  */
 const SignUpContainer: React.FC<TSignUpContainerProps> = ({}) => {
