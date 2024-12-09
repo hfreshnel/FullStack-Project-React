@@ -1,5 +1,4 @@
 .main-button {
-    background: var(--main-blue);
     color: var(--main-white);
     border-radius: 20px;
     font-size: 20px;
@@ -8,6 +7,19 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    .gris {
+        background-color: gray;
+    }
+    .bleu {
+        background-color: blue;
+    }
+    .rouge {
+        background-color: red;
+    }
+    .vert {
+        background-color: green;
+    }
+
 }
 
 .main-button:active {
@@ -18,3 +30,4 @@
 .main-button:hover {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Accentuation au survol */
 }
+
