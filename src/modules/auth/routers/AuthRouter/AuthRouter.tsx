@@ -1,8 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { TAuthRouterProps } from './types/TAuthRouterProps';
-import LoginContainer from '../containers/LoginContainer/LoginContainer';
-import SignUpContainer from '../containers/SignUpContainer/SignUpContainer';
-
+import LoginContainer from '../../containers/LoginContainer/LoginContainer';
+import SignUpContainer from '../../containers/SignUpContainer/SignUpContainer';
 const AuthRouter: React.FC<TAuthRouterProps> = ({}) => {
   return (
     <Routes>
