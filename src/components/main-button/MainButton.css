@@ -1,6 +1,4 @@
 .main-button {
-    background: var(--main-blue);
-    color: var(--main-white);
     border-radius: 20px;
     font-size: 20px;
     padding: 15px 30px;
@@ -10,11 +8,67 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.main-button.bg-blue {
+    background-color: var(--main-blue);
+}
+
+.main-button.bg-green {
+    background-color: var(--main-green);
+}
+
+.main-button.bg-yellow {
+    background-color: var(--main-yellow);
+}
+
+.main-button.bg-orange {
+    background-color: var(--main-orange);
+}
+
+.main-button.bg-red {
+    background-color: var(--main-red);
+}
+
+.main-button.bg-grey {
+    background-color: var(--main-grey);
+}
+
+.main-button.bg-white {
+    background-color: var(--main-white);
+}
+
+.main-button.text-blue {
+    color: var(--main-blue);
+}
+
+.main-button.text-green {
+    color: var(--main-green);
+}
+
+.main-button.text-yellow {
+    color: var(--main-yellow);
+}
+
+.main-button.text-orange {
+    color: var(--main-orange);
+}
+
+.main-button.text-red {
+    color: var(--main-red);
+}
+
+.main-button.text-grey {
+    color: var(--main-grey);
+}
+
+.main-button.text-white {
+    color: var(--main-white);
+}
+
 .main-button:active {
-    transform: scale(0.95); /* Réduction légère sur clic */
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Ombre réduite */
+    transform: scale(0.95);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .main-button:hover {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Accentuation au survol */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
