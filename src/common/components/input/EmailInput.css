@@ -1,0 +1,24 @@
+.email-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.email-input-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.email-input-field {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.email-input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}

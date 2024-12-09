@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Input from '../../common/components/input/Input';
+import TextInput from '../../common/components/input/TextInput';
+import PasswordInput from '../../common/components/input/PasswordInput';
+import EmailInput from '../../common/components/input/EmailInput';
 import TextButton from '../../common/components/text-button/TextButton.tsx';
-import { InputType } from '../../common/utils/InputType.tsx';
-import { Size } from '../../common/utils/Size.tsx';
 import { Color } from '../../common/utils/Colors.tsx';
+import { Size } from '../../common/utils/Size.tsx';
 
 const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,61 +26,60 @@ const RegisterPage: React.FC = () => {
 
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        backgroundColor: '#f8fafc',
+        padding: '20px',
+      }}
     >
-      <h1>Inscription</h1>
+      <h1 style={{ marginBottom: '20px', color: '#333', fontSize: '24px' }}>
+        Inscription
+      </h1>
       <form
         onSubmit={handleSubmit}
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px',
-          width: '300px',
+          gap: '15px',
+          width: '100%',
+          maxWidth: '400px',
+          backgroundColor: '#ffffff',
+          padding: '30px',
+          borderRadius: '12px',
+          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
         }}
       >
-        <Input
+        <TextInput
           label='Nom'
-          type={InputType.TEXT}
           placeholder='Votre nom'
-          bgColor='white'
-          textColor='grey'
-          inputSize={Size.MEDIUM}
           value={formData.name}
           onChange={e =>
             handleChange({ ...e, target: { ...e.target, name: 'name' } })
           }
         />
-        <Input
+        <TextInput
           label='Prénom'
-          type={InputType.TEXT}
           placeholder='Votre prénom'
-          bgColor='white'
-          textColor='grey'
-          inputSize={Size.MEDIUM}
           value={formData.firstName}
           onChange={e =>
             handleChange({ ...e, target: { ...e.target, name: 'firstName' } })
           }
         />
-        <Input
+        <EmailInput
           label='Email'
-          type={InputType.EMAIL}
           placeholder='Votre email'
-          bgColor='white'
-          textColor='grey'
-          inputSize={Size.MEDIUM}
           value={formData.email}
           onChange={e =>
             handleChange({ ...e, target: { ...e.target, name: 'email' } })
           }
         />
-        <Input
+        <PasswordInput
           label='Mot de passe'
-          type={InputType.PASSWORD}
           placeholder='Votre mot de passe'
-          bgColor='white'
-          textColor='grey'
-          inputSize={Size.MEDIUM}
           value={formData.password}
           onChange={e =>
             handleChange({ ...e, target: { ...e.target, name: 'password' } })
