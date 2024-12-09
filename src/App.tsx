@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginForm from './modules/auth/LoginForm.tsx';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import AuthRouter from './modules/auth/routers/AuthRouter/AuthRouter';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<LoginForm />} />
+        <Route path='/auth/*' element={<AuthRouter />} />
       </Routes>
     </Router>
   );
