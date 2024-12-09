@@ -1,27 +1,39 @@
 import React from 'react';
 import './TextButton.css';
-import { Size } from '../../enums/Size.ts';
 import { Color } from '../../enums/Color.ts';
+import { Size } from '../../enums/Size.ts';
 
-interface MainButtonProps {
+interface MainButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  bgColor: Color;
-  textColor: Color;
-  btnSize: Size;
+  bgColor?: Color;
+  textColor?: Color;
+  borderColor?: Color;
+  btnSize?: Size;
+  disabled?: boolean;
 }
 
 const TextButton: React.FC<MainButtonProps> = ({
   label,
-  bgColor,
-  textColor,
-  btnSize,
+  bgColor = Color.BLUE,
+  textColor = Color.WHITE,
+  borderColor = Color.WHITE,
+  btnSize = Size.MEDIUM,
+  disabled = false,
   ...props
 }) => {
+  let classes = 'text-button ';
+  classes += btnSize && ` size-${btnSize} `;
+  if (disabled) {
+    classes += 'disabled ';
+  } else {
+    classes += bgColor && `bg-${bgColor} `;
+    classes += textColor && `text-${textColor} `;
+    classes += borderColor && `border-${borderColor} `;
+  }
+
   return (
-    <button
-      {...props}
-      className={`text-button bg-${bgColor} text-${textColor} size-${btnSize}`}
-    >
+    <button {...props} className={classes}>
       {label}
     </button>
   );

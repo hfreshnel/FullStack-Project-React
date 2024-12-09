@@ -1,13 +1,11 @@
-import { TLoginFormProps } from './types/TLoginFormProps';
-import React from 'react';
 import Input from '../../../../common/components/input/Input.tsx';
 import { InputType } from '../../../../common/enums/InputType.ts';
-import { Color } from '../../../../common/utils/Colors.tsx';
 import { Size } from '../../../../common/enums/Size.ts';
+import { Color } from '../../../../common/enums/Color.ts';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import './LoginForm.css';
 
-const LoginForm: React.FC<TLoginFormProps> = ({}) => {
+const LoginForm = () => {
   return (
     <div className={'login-container'}>
       <form className={'login-form'}>
