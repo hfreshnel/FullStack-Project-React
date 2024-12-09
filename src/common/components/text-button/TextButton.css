@@ -24,59 +24,59 @@
 }
 
 .text-button.bg-blue {
-    background-color: var(--main-blue);
+    background-color: var(--primary-blue);
 }
 
 .text-button.bg-green {
-    background-color: var(--main-green);
+    background-color: var(--primary-green);
 }
 
 .text-button.bg-yellow {
-    background-color: var(--main-yellow);
+    background-color: var(--primary-yellow);
 }
 
 .text-button.bg-orange {
-    background-color: var(--main-orange);
+    background-color: var(--primary-orange);
 }
 
 .text-button.bg-red {
-    background-color: var(--main-red);
+    background-color: var(--primary-red);
 }
 
 .text-button.bg-grey {
-    background-color: var(--main-grey);
+    background-color: var(--primary-grey);
 }
 
 .text-button.bg-white {
-    background-color: var(--main-white);
+    background-color: var(--primary-white);
 }
 
 .text-button.text-blue {
-    color: var(--main-blue);
+    color: var(--primary-blue);
 }
 
 .text-button.text-green {
-    color: var(--main-green);
+    color: var(--primary-green);
 }
 
 .text-button.text-yellow {
-    color: var(--main-yellow);
+    color: var(--primary-yellow);
 }
 
 .text-button.text-orange {
-    color: var(--main-orange);
+    color: var(--primary-orange);
 }
 
 .text-button.text-red {
-    color: var(--main-red);
+    color: var(--primary-red);
 }
 
 .text-button.text-grey {
-    color: var(--main-grey);
+    color: var(--primary-grey);
 }
 
 .text-button.text-white {
-    color: var(--main-white);
+    color: var(--primary-white);
 }
 
 .text-button:active {
