@@ -1,0 +1,125 @@
+.icon-button {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icon-button.disabled {
+  pointer-events: none;
+  background-color: var(--main-grey);
+  color: var(--main-white);
+}
+
+.icon-button.border-green {
+  border-color: var(--main-green);
+}
+
+.icon-button.border-yellow {
+  border-color: var(--main-yellow);
+}
+
+.icon-button.border-orange {
+  border-color: var(--main-orange);
+}
+
+.icon-button.border-red {
+  border-color: var(--main-red);
+}
+
+.icon-button.border-grey {
+  border-color: var(--main-grey);
+}
+
+.icon-button.border-white {
+  color: var(--main-white);
+}
+.icon-button.size-small {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+}
+
+.icon-button.size-medium {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+
+.icon-button.size-large {
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+}
+
+.icon-button.bg-blue {
+  background-color: var(--main-blue);
+}
+
+.icon-button.bg-green {
+  background-color: var(--main-green);
+}
+
+.icon-button.bg-yellow {
+  background-color: var(--main-yellow);
+}
+
+.icon-button.bg-orange {
+  background-color: var(--main-orange);
+}
+
+.icon-button.bg-red {
+  background-color: var(--main-red);
+}
+
+.icon-button.bg-grey {
+  background-color: var(--main-grey);
+}
+
+.icon-button.bg-white {
+  background-color: var(--main-white);
+}
+
+.icon-button.icon-blue {
+  color: var(--main-blue);
+}
+
+.icon-button.icon-green {
+  color: var(--main-green);
+}
+
+.icon-button.icon-yellow {
+  color: var(--main-yellow);
+}
+
+.icon-button.icon-orange {
+  color: var(--main-orange);
+}
+
+.icon-button.icon-red {
+  color: var(--main-red);
+}
+
+.icon-button.icon-grey {
+  color: var(--main-grey);
+}
+
+.icon-button.icon-white {
+  color: var(--main-white);
+}
+
+.icon-button:active {
+  transform: scale(0.7);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.icon-button:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
