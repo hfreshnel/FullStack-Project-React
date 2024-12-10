@@ -90,3 +90,31 @@ body {
 .text-white {
     color: var(--main-white);
 }
+
+.border-blue {
+    border: 3px solid var(--main-blue);
+}
+
+.border-green {
+    border: 3px solid var(--main-green);
+}
+
+.border-yellow {
+    border-color: 3px solid var(--main-yellow);
+}
+
+.border-orange {
+    border-color: 3px solid var(--main-orange);
+}
+
+.border-red {
+    border-color: 3px solid var(--main-red);
+}
+
+.border-grey {
+    border-color: 3px solid var(--main-grey);
+}
+
+.border-white {
+    border-color: 3px solid var(--main-white);
+}
