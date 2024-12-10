@@ -1,82 +1,13 @@
 .text-button {
-    border-radius: 20px;
-    font-size: 20px;
-    padding: 15px 30px;
+    border-radius: 25px;
     border: none;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.text-button.size-small {
-    font-size: 12px;
-    padding: 8px 16px;
-}
-
-.text-button.size-medium {
-    font-size: 16px;
-    padding: 12px 24px;
+    font-weight: bold;
 }
 
 .text-button.size-large {
-    font-size: 20px;
-    padding: 15px 30px;
-}
-
-.text-button.bg-blue {
-    background-color: var(--main-blue);
-}
-
-.text-button.bg-green {
-    background-color: var(--main-green);
-}
-
-.text-button.bg-yellow {
-    background-color: var(--main-yellow);
-}
-
-.text-button.bg-orange {
-    background-color: var(--main-orange);
-}
-
-.text-button.bg-red {
-    background-color: var(--main-red);
-}
-
-.text-button.bg-grey {
-    background-color: var(--main-grey);
-}
-
-.text-button.bg-white {
-    background-color: var(--main-white);
-}
-
-.text-button.text-blue {
-    color: var(--main-blue);
-}
-
-.text-button.text-green {
-    color: var(--main-green);
-}
-
-.text-button.text-yellow {
-    color: var(--main-yellow);
-}
-
-.text-button.text-orange {
-    color: var(--main-orange);
-}
-
-.text-button.text-red {
-    color: var(--main-red);
-}
-
-.text-button.text-grey {
-    color: var(--main-grey);
-}
-
-.text-button.text-white {
-    color: var(--main-white);
 }
 
 .text-button:active {
