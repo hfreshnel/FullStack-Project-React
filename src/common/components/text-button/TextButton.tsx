@@ -15,10 +15,10 @@ interface MainButtonProps
 
 const TextButton: React.FC<MainButtonProps> = ({
   label,
-  bgColor = Color.BLUE,
-  textColor = Color.WHITE,
-  borderColor = Color.WHITE,
-  btnSize = Size.MEDIUM,
+  bgColor,
+  textColor,
+  borderColor,
+  btnSize = Size.LARGE,
   disabled = false,
   ...props
 }) => {
@@ -27,9 +27,9 @@ const TextButton: React.FC<MainButtonProps> = ({
   if (disabled) {
     classes += 'disabled ';
   } else {
-    classes += bgColor && `bg-${bgColor} `;
-    classes += textColor && `text-${textColor} `;
-    classes += borderColor && `border-${borderColor} `;
+    classes += bgColor ? `bg-${bgColor} ` : '';
+    classes += textColor ? `text-${textColor} ` : '';
+    classes += borderColor ? `border-${borderColor} ` : '';
   }
 
   return (

@@ -17,10 +17,10 @@ interface IconButtonProps
 
 const IconButton: React.FC<IconButtonProps> = ({
   icon,
-  bgColor = Color.WHITE,
+  bgColor,
   iconColor = Color.BLUE,
   btnSize = Size.LARGE,
-  borderColor = Color.BLUE,
+  borderColor,
   disabled = false,
   ...props
 }) => {
