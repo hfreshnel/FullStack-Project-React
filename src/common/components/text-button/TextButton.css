@@ -1,0 +1,17 @@
+.text-button {
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: bold;
+}
+
+.text-button:active {
+    transform: scale(0.7);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-button:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}

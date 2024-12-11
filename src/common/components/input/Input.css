@@ -1,0 +1,40 @@
+.input-field {
+  border-radius: 25px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.input-field:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.input-field.text-blue::placeholder {
+  color: var(--primary-blue);
+}
+
+.input-field.text-green::placeholder {
+  color: var(--primary-green);
+}
+
+.input-field.text-yellow::placeholder {
+  color: var(--primary-yellow);
+}
+
+.input-field.text-orange::placeholder {
+  color: var(--primary-orange);
+}
+
+.input-field.text-red::placeholder {
+  color: var(--primary-red);
+}
+
+.input-field.text-grey::placeholder {
+  color: var(--primary-grey);
+}
+
+.input-field.text-white::placeholder {
+  color: var(--primary-white);
+}

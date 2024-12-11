@@ -1,4 +1,145 @@
 :root {
-    --main-white: #FFFFFF;
-    --main-blue: #0023b1;
+    --primary-black: #000000;
+    --primary-blue: #0023b1;
+    --primary-green: #3bb100;
+    --primary-yellow: #faeb15;
+    --primary-orange: #f06b12;
+    --primary-red: #b10f00;
+    --primary-grey: #afafaf;
+    --primary-white: #ffffff;
+
+    --secondary-white: #ededed;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-white);
+}
+
+.size-small {
+    font-size: 12px;
+    width: 30%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.size-medium {
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    width: 55%;
+}
+
+.size-large {
+    font-size: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+.disabled:active {
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.disabled:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.bg-black {
+    background-color: var(--primary-black);
+}
+
+.bg-blue {
+    background-color: var(--primary-blue);
+}
+
+.bg-green {
+    background-color: var(--primary-green);
+}
+
+.bg-yellow {
+    background-color: var(--primary-yellow);
+}
+
+.bg-orange {
+    background-color: var(--primary-orange);
+}
+
+.bg-red {
+    background-color: var(--primary-red);
+}
+
+.bg-grey {
+    background-color: var(--primary-grey);
+}
+
+.bg-white {
+    background-color: var(--primary-white);
+}
+
+.text-black {
+    color: var(--primary-black);
+}
+
+.text-blue {
+    color: var(--primary-blue);
+}
+
+.text-green {
+    color: var(--primary-green);
+}
+
+.text-yellow {
+    color: var(--primary-yellow);
+}
+
+.text-orange {
+    color: var(--primary-orange);
+}
+
+.text-red {
+    color: var(--primary-red);
+}
+
+.text-grey {
+    color: var(--primary-grey);
+}
+
+.text-white {
+    color: var(--primary-white);
+}
+
+.border-black {
+    border: 3px solid var(--primary-black);
+}
+
+.border-blue {
+    border: 3px solid var(--primary-blue);
+}
+
+.border-green {
+    border: 3px solid var(--primary-green);
+}
+
+.border-yellow {
+    border: 3px solid var(--primary-yellow);
+}
+
+.border-orange {
+    border: 3px solid var(--primary-orange);
+}
+
+.border-red {
+    border: 3px solid var(--primary-red);
+}
+
+.border-grey {
+    border: 3px solid var(--primary-grey);
+}
+
+.border-white {
+    border: 3px solid var(--primary-white);
 }
