@@ -19,7 +19,9 @@ const MainCard = ({
   cardSize = Size.LARGE,
   ...props
 }: MainCardProps) => {
-  let classes = 'main-card ';
+  let classes = props.className
+    ? props.className + ' main-card '
+    : 'main-card ';
   classes += bgColor ? `bg-${bgColor} ` : '';
   classes += textColor ? `text-${textColor} ` : '';
   classes += cardSize ? `size-${cardSize} ` : '';

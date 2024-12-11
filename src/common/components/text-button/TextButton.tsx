@@ -22,18 +22,17 @@ const TextButton = ({
   disabled = false,
   ...props
 }: MainButtonProps) => {
-  let classes = 'text-button ';
-  classes += btnSize && ` size-${btnSize} `;
-  if (disabled) {
-    classes += 'disabled ';
-  } else {
-    classes += bgColor ? `bg-${bgColor} ` : '';
-    classes += textColor ? `text-${textColor} ` : '';
-    classes += borderColor ? `border-${borderColor} ` : '';
-  }
+  let classes = props.className
+    ? props.className + ' text-button '
+    : 'text-button ';
+  classes += btnSize ? ` size-${btnSize} ` : '';
+  classes += bgColor ? `bg-${bgColor} ` : '';
+  classes += textColor ? `text-${textColor} ` : '';
+  classes += borderColor ? `border-${borderColor} ` : '';
+  classes += disabled ? 'disabled ' : '';
 
   return (
-    <button {...props} className={classes}>
+    <button {...props} className={classes} disabled={disabled}>
       {label}
     </button>
   );
