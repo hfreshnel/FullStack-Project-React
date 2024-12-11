@@ -1,7 +1,10 @@
-import { TSignUpFormProps } from './types/TSignUpFormProps';
-import React from 'react';
+import { TSignupRequest } from '../../../../common/services/auth/types/requests/TSignupRequest.ts';
 
-const SignUpForm: React.FC<TSignUpFormProps> = ({}) => {
+interface SignUpFormProps {
+  handleSignUp: (data: TSignupRequest) => Promise<void>;
+}
+
+const SignUpForm = ({ handleSignUp }: SignUpFormProps) => {
   return <></>;
 };
 

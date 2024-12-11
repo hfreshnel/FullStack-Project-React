@@ -1,7 +1,6 @@
-import React from 'react';
 import LoginForm from '../../forms/LoginForm/LoginForm.tsx';
 
-const LoginContainer: React.FC = () => {
+const LoginContainer = () => {
   return <LoginForm />;
 };
 

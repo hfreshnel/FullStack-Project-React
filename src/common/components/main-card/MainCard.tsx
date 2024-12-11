@@ -11,14 +11,14 @@ interface MainCardProps extends React.HTMLAttributes<HTMLElement> {
   cardSize?: Size;
 }
 
-const MainCard: React.FC<MainCardProps> = ({
+const MainCard = ({
   label,
   borderColor,
   bgColor,
   textColor = Color.BLUE,
   cardSize = Size.LARGE,
   ...props
-}) => {
+}: MainCardProps) => {
   let classes = 'main-card ';
   classes += bgColor ? `bg-${bgColor} ` : '';
   classes += textColor ? `text-${textColor} ` : '';

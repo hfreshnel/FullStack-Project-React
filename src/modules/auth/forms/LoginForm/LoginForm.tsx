@@ -1,11 +1,8 @@
 import Input from '../../../../common/components/input/Input.tsx';
 import { InputType } from '../../../../common/enums/InputType.ts';
-import { Size } from '../../../../common/enums/Size.ts';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import { Color } from '../../../../common/enums/Color.ts';
 import './LoginForm.css';
-import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
-import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 
 const LoginForm = () => {
   return (

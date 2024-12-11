@@ -13,7 +13,7 @@ interface MainButtonProps
   disabled?: boolean;
 }
 
-const TextButton: React.FC<MainButtonProps> = ({
+const TextButton = ({
   label,
   bgColor,
   textColor,
@@ -21,7 +21,7 @@ const TextButton: React.FC<MainButtonProps> = ({
   btnSize = Size.LARGE,
   disabled = false,
   ...props
-}) => {
+}: MainButtonProps) => {
   let classes = 'text-button ';
   classes += btnSize && ` size-${btnSize} `;
   if (disabled) {

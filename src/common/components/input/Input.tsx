@@ -11,14 +11,14 @@ interface InputProps extends React.InputHTMLAttributes<HTMLElement> {
   borderColor?: Color;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = ({
   placeholder,
   bgColor,
   textColor,
   borderColor,
   inputSize = Size.LARGE,
   ...props
-}) => {
+}: InputProps) => {
   let classes = 'input-field ';
   classes += bgColor ? `bg-${bgColor} ` : '';
   classes += textColor ? `text-${textColor} ` : '';

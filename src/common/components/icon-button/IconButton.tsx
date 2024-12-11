@@ -15,7 +15,7 @@ interface IconButtonProps
   disabled?: boolean;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({
+const IconButton = ({
   icon,
   bgColor,
   iconColor = Color.BLUE,
@@ -23,7 +23,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   borderColor,
   disabled = false,
   ...props
-}) => {
+}: IconButtonProps) => {
   let classes = 'icon-button ';
   classes += btnSize && ` size-${btnSize} `;
   if (disabled) {
