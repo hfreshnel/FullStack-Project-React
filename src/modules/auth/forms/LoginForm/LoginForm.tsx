@@ -21,9 +21,15 @@ const LoginForm = () => {
           bgColor={Color.WHITE}
         />
         <TextButton
-          label="S'inscrire"
-          textColor={Color.WHITE}
+          label='Se connecter'
           bgColor={Color.BLUE}
+          textColor={Color.WHITE}
+          className={'login-button'}
+        />
+        <TextButton
+          label="S'inscrire"
+          bgColor={Color.BLUE}
+          textColor={Color.WHITE}
         />
       </form>
     </div>

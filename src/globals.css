@@ -1,11 +1,12 @@
 :root {
+    --primary-black: #000000;
     --primary-blue: #0023b1;
     --primary-green: #3bb100;
-    --primary-yellow: #b19400;
-    --primary-orange: #b15e00;
+    --primary-yellow: #faeb15;
+    --primary-orange: #f06b12;
     --primary-red: #b10f00;
     --primary-grey: #afafaf;
-    --primary-white: #FFFFFF;
+    --primary-white: #ffffff;
 
     --secondary-white: #ededed;
 }
@@ -36,6 +37,21 @@ body {
     width: 100%;
 }
 
+.disabled:active {
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.disabled:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.bg-black {
+    background-color: var(--primary-black);
+}
+
 .bg-blue {
     background-color: var(--primary-blue);
 }
@@ -62,6 +78,10 @@ body {
 
 .bg-white {
     background-color: var(--primary-white);
+}
+
+.text-black {
+    color: var(--primary-black);
 }
 
 .text-blue {
@@ -92,6 +112,10 @@ body {
     color: var(--primary-white);
 }
 
+.border-black {
+    border: 3px solid var(--primary-black);
+}
+
 .border-blue {
     border: 3px solid var(--primary-blue);
 }
@@ -101,21 +125,21 @@ body {
 }
 
 .border-yellow {
-    border-color: 3px solid var(--primary-yellow);
+    border: 3px solid var(--primary-yellow);
 }
 
 .border-orange {
-    border-color: 3px solid var(--primary-orange);
+    border: 3px solid var(--primary-orange);
 }
 
 .border-red {
-    border-color: 3px solid var(--primary-red);
+    border: 3px solid var(--primary-red);
 }
 
 .border-grey {
-    border-color: 3px solid var(--primary-grey);
+    border: 3px solid var(--primary-grey);
 }
 
 .border-white {
-    border-color: 3px solid var(--primary-white);
+    border: 3px solid var(--primary-white);
 }

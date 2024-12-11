@@ -24,18 +24,17 @@ const IconButton = ({
   disabled = false,
   ...props
 }: IconButtonProps) => {
-  let classes = 'icon-button ';
-  classes += btnSize && ` size-${btnSize} `;
-  if (disabled) {
-    classes += 'disabled ';
-  } else {
-    classes += bgColor && `bg-${bgColor} `;
-    classes += iconColor && `text-${iconColor} `;
-    classes += borderColor && `border-${borderColor} `;
-  }
+  let classes = props.className
+    ? props.className + ' icon-button '
+    : 'icon-button ';
+  classes += btnSize ? ` size-${btnSize} ` : '';
+  classes += bgColor ? `bg-${bgColor} ` : '';
+  classes += iconColor ? `text-${iconColor} ` : '';
+  classes += borderColor ? `border-${borderColor} ` : '';
+  classes += disabled ? 'disabled ' : '';
 
   return (
-    <button {...props} className={classes}>
+    <button {...props} className={classes} disabled={disabled}>
       <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
     </button>
   );
