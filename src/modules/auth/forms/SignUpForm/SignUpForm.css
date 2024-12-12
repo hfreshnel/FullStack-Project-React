@@ -20,17 +20,3 @@
 .register-button {
     margin-top: 30px;
 }
-.error-card-container {
-    position: fixed;
-    display: flex;
-    bottom: 0;
-    margin-bottom: 2%;
-    width: 30%;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
-.error-card-container.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
