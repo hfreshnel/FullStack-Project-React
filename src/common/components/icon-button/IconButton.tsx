@@ -13,6 +13,7 @@ interface IconButtonProps
   btnSize?: Size;
   borderColor?: Color;
   disabled?: boolean;
+  tooltip?: string;
 }
 
 const IconButton = ({
@@ -22,6 +23,7 @@ const IconButton = ({
   btnSize = Size.LARGE,
   borderColor,
   disabled = false,
+  tooltip,
   ...props
 }: IconButtonProps) => {
   let classes = props.className
@@ -36,6 +38,7 @@ const IconButton = ({
   return (
     <button {...props} className={classes} disabled={disabled}>
       <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+      {tooltip && <span className='tooltip'>{tooltip}</span>}
     </button>
   );
 };

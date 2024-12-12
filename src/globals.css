@@ -11,6 +11,10 @@
     --secondary-white: #ededed;
 }
 
+* {
+    border-radius: 25px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--secondary-white);
