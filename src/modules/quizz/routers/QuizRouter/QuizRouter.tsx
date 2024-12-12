@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import QuizCreateContainer from '../../container/QuizCreateContainer/QuizCreateContainer.tsx';
-import QuizListContainer from '../../container/QuizListContainer/QuizListContainer.tsx';
+import QuizCreateContainer from '../../containers/QuizCreateContainer/QuizCreateContainer.tsx';
+import QuizListContainer from '../../containers/QuizListContainer/QuizListContainer.tsx';
 
 const QuizRouter = () => {
   return (

@@ -1,0 +1,51 @@
+.main-menu {
+    position: fixed;
+    display: flex;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 3px 3px 5px var(--primary-grey  );
+    width: 80px;
+    background-color: var(--primary-white);
+    height: 95vh;
+
+    .logout-button:hover {
+        .tooltip {
+            color: var(--primary-red);
+        }
+        background-color: var(--primary-red);
+        color: var(--primary-white)
+    }
+}
+
+.main-menu-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-blue);
+    margin-top: 5%;
+    width: 90%;
+    font-size: 40px;
+}
+
+.main-menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;
+    width: 90%;
+    height: 60vh;
+
+    .main-menu-button:hover {
+        background-color: var(--primary-blue);
+        color: var(--primary-white);
+    }
+}
+
+.main-menu-footer {
+    width: 90%;
+}
