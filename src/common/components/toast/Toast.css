@@ -1,0 +1,14 @@
+.toast-container {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    margin-bottom: 2%;
+    width: 30%;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.toast-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
