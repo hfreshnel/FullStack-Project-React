@@ -5,7 +5,7 @@ import { Color } from '../../../../common/enums/Color.ts';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import './SignUpForm.css';
 import React, { useState, useEffect } from 'react';
-import MainCard from '../../../../common/components/main-card/MainCard.tsx';
+import Toast from '../../../../common/components/toast/Toast.tsx';
 
 interface SignUpFormProps {
   handleSignUp: (data: TSignupRequest) => Promise<void>;
@@ -123,17 +123,12 @@ const SignUpForm = ({ handleSignUp }: SignUpFormProps) => {
           className={'register-button'}
         />
         {error && (
-          <div className={`error-card-container ${!visible ? 'hidden' : ''}`}>
-            <MainCard
-              key={errorKey}
-              label={error}
-              bgColor={Color.RED}
-              textColor={Color.WHITE}
-              className={'error-card'}
-            >
-              {error}
-            </MainCard>
-          </div>
+          <Toast
+            label={error}
+            visible={visible}
+            bgColor={Color.RED}
+            textColor={Color.WHITE}
+          />
         )}
       </form>
     </div>
