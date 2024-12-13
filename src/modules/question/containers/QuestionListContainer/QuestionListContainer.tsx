@@ -6,6 +6,9 @@ import MainCard from '../../../../common/components/main-card/MainCard.tsx';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import { Color } from '../../../../common/enums/Color.ts';
 import { Size } from '../../../../common/enums/Size.ts';
+import { Link } from 'react-router-dom';
+import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 interface Question {
   id: number;
@@ -17,7 +20,7 @@ interface Quiz {
   libelle: string;
   questions: Question[];
 }
-
+const isAdmin = true;
 const QuestionListContainer = () => {
   const { id } = useParams<{ id: string }>(); // Récupérer l'ID du quiz depuis l'URL
   const [quiz, setQuiz] = useState<Quiz | null>(null); // État pour stocker le quiz sélectionné
@@ -46,7 +49,7 @@ const QuestionListContainer = () => {
           <>
             {/* Affichage du titre du quiz */}
             <div className='quiz-title-container'>
-              <MainCard 
+              <MainCard
                 label={quiz.libelle}
                 cardSize={Size.LARGE}
                 textColor={Color.BLUE}
@@ -55,15 +58,32 @@ const QuestionListContainer = () => {
             {/* Liste des questions */}
             <div className="questions-list">
               {quiz.questions.map((question) => (
-                <TextButton
-                  key={question.id}
-                  label={question.libelle}
-                  textColor={Color.WHITE}
-                  bgColor={Color.BLUE}
-                 
-                />
+                <div key={question.id} className="bar-container">
+                  <div className="bar-row">
+  <Link to={`/list/answer/${question.id}`} className="bar">
+    <TextButton
+      label={question.libelle}
+      textColor={Color.WHITE}
+      bgColor={Color.BLUE}
+    />
+  </Link>
+  {isAdmin && (
+    <Link to={`/questionDelete/${question.id}`} className="delete-icon">
+      <IconButton
+        icon={faXmark}
+        bgColor={Color.RED}
+        iconColor={Color.WHITE}
+        tooltip={"Supprimer question"}
+        className={"delete-button"}
+      />
+    </Link>
+  )}
+</div>
+
+                </div>
               ))}
             </div>
+
           </>
         ) : (
           <p>Aucun quiz trouvé pour l'ID : {id}</p>

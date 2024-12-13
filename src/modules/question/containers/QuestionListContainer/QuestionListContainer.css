@@ -37,4 +37,37 @@
     margin-bottom: 20px; /* Espacement sous le titre */
     margin-top: 12%;
   }
-
+.questions-list .bar{
+    width: 100%;
+}
+.bar-row {
+    display: flex;                /* Flexbox pour aligner horizontalement */
+   
+    align-items: center;          /* Aligne verticalement */
+    gap: 8px;                    /* Espace entre les éléments */
+    width: 100%;                  /* La ligne occupe toute la largeur du conteneur */
+  }
+  
+  .bar {
+    flex: 1;                      /* Prend tout l'espace disponible */
+    text-align: center; 
+    width: 100%;            /* Aligne le contenu à gauche */
+  }
+  
+  .delete-icon {
+    flex: 0;                      /* Garde la taille naturelle de l'icône */
+    margin-left: auto;            /* Place l'icône complètement à droite */
+    display: flex;                /* Ajoute Flexbox pour mieux aligner */
+    align-items: center;          /* Centre verticalement l'icône */
+    justify-content: center;      /* Centre l'icône dans son conteneur */
+  }
+  
+  .questions-list {
+    display: flex;
+    flex-direction: column;       /* Aligne les lignes verticalement */
+    gap: 15px;                    /* Espacement entre les lignes */
+    width: 100%;                  /* Prend toute la largeur du conteneur parent */
+    max-width: 600px;             /* Limite la largeur */
+    margin: 0 auto;               /* Centre horizontalement */
+  }
+  
