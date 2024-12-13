@@ -32,7 +32,7 @@ import { useEffect, useState } from 'react';
 import { LoadingStateEnum } from '../enums/LoadingStateEnum';
 import { TuseFetchDataProps } from './types/TuseFetchDataProps';
 import { TError } from './types/TError';
-import { ErrorTypeEnum } from '../enums/ErrorTypeEnum';
+import { ErrorTypeEnum } from '../enums/errorType/ErrorTypeEnum';
 
 const useFetchData = (props: TuseFetchDataProps) => {
   // State to track loading state (IDLE, LOADING, SUCCESS, ERROR)

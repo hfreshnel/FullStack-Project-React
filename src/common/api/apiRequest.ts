@@ -1,53 +1,55 @@
+import axios, { AxiosRequestConfig } from 'axios';
+import { ErrorTypeEnum } from '../enums/errorType/ErrorTypeEnum';
 import { MethodEnum } from '../enums/MethodEnum';
+import { throwTypedError } from '../utils/sharedFunctions/api/apiShared';
 import { TApiResponse } from './types/TApiResponse';
-import axios from "axios";
 
+// Crée une instance Axios avec une base URL définie via les variables d'environnement
 const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL ||"",
-  });
+  baseURL: process.env.REACT_APP_API_URL || '',
+});
 
+/**
+ * Effectue une requête API avec les paramètres spécifiés.
+ *
+ * @param url - Le chemin de l'endpoint API.
+ * @param method - Méthode HTTP à utiliser (GET, POST, etc.).
+ * @param data - Données envoyées avec la requête (si applicable).
+ * @param config - Configuration supplémentaire pour la requête Axios.
+ * @returns Une promesse contenant la réponse typée.
+ */
 export const apiRequest = async <T>(
   url: string,
-  methodEnum: MethodEnum,
-  body: any = null,
-  multipart: boolean = false,
+  method: MethodEnum,
+  data?: any,
+  config?: AxiosRequestConfig,
 ): Promise<TApiResponse<T>> => {
   try {
-    let headers: any = {};
-
     const axiosConfig = {
-      method: methodEnum,
       url,
-      headers,
-      data: body,
+      method,
+      data,
+      ...config,
     };
-
-    if (multipart) {
-      let formData = new FormData();
-      for (const key in body) {
-        if (body[key] instanceof File) {
-          formData.append(key, body[key]);
-        } else {
-          formData.append(key, JSON.stringify(body[key]));
-        }
-      }
-      axiosConfig.data = formData;
-      axiosConfig.headers = {
-        ...headers,
-        'Content-Type': 'multipart/form-data',
-      };
-    } else {
-      axiosConfig.data = body;
-    }
-
     const response = await axiosInstance(axiosConfig);
-    const data: TApiSuccessResponse<T> = response.data;
-
-    console.log(
-      `URL: ${url}, body: ${JSON.stringify(body)}, data: ${JSON.stringify(data.data)}, message: ${data.message}`,
-    );
-    return data;
+    const responseData: TApiResponse<T> = response.data;
+    if (responseData.error) {
+      throwTypedError(responseData.error, responseData.code);
+    }
+    return responseData;
   } catch (error) {
-    //
+    // Gestion des erreurs : extraction des détails pertinents
+    let errorType: ErrorTypeEnum = ErrorTypeEnum.unknown;
+    let errorCode: number = 400;
+    if (axios.isAxiosError(error) && error) {
+      errorType = error.response?.data;
+      const parsedError = error.code ? parseInt(error.code) : 400;
+      errorCode = parsedError;
+    }
+    throwTypedError(errorType, errorCode);
+    return {
+      error: errorType,
+      code: errorCode,
+    };
   }
 };
