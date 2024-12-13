@@ -1,0 +1,13 @@
+@import "../../../../globals.css";
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    gap: 20px;
+    width: 30%;
+}

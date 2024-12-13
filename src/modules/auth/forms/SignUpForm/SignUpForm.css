@@ -1,6 +1,6 @@
 @import '../../../../globals.css';
 
-.login-form {
+.register-form {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -9,6 +9,6 @@
     gap: 20px;
 }
 
-.login-button {
+.register-button {
     margin-top: 30px;
 }
