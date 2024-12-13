@@ -1,9 +1,9 @@
 import { Ssignup } from '../../services/auth/authService';
 import { TSignupRequest } from '../../services/auth/types/requests/TSignupRequest';
 import { TSignupResponse } from '../../services/auth/types/responses/TSignupResponse';
-import { TuseAuthRepositoryProps } from './types/TuseAuthRepositoryProps';
+import { TuseUserRepositoryProps } from './types/TuseUserRepositoryProps';
 
-const useAuthRepository = (props: TuseAuthRepositoryProps) => {
+const useUserRepository = (props: TuseUserRepositoryProps) => {
   const Rsignup = async (request: TSignupRequest): Promise<TSignupResponse> => {
     return await Ssignup(request);
   };
@@ -13,4 +13,4 @@ const useAuthRepository = (props: TuseAuthRepositoryProps) => {
   };
 };
 
-export default useAuthRepository;
+export default useUserRepository;

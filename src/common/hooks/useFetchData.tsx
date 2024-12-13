@@ -99,7 +99,7 @@ const useFetchData = (props: TuseFetchDataProps) => {
         statusCode: err.statusCode || 500,
         message: err.message || 'An unexpected error occurred',
         data: err.data || null,
-        type: err.type || ErrorTypeEnum.UNKNOWN,
+        type: err.type || ErrorTypeEnum.unknown,
       };
 
       // Set the error state with the transformed error
