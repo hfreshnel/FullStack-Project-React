@@ -3,8 +3,9 @@ import { useEffect, useRef } from 'react';
 
 interface LineBarChartProps {
   seriesData: number[];
+  seriesAnswers: string[];
 }
-function LineBarChart({ seriesData }: LineBarChartProps) {
+function LineBarChart({ seriesData, seriesAnswers }: LineBarChartProps) {
   const chartRef = useRef(null);
   useEffect(() => {
     let chartInstance = echarts.init(chartRef.current);
@@ -14,7 +15,7 @@ function LineBarChart({ seriesData }: LineBarChartProps) {
       },
       xAxis: {
         type: 'category',
-        data: ['Réponse1', 'Réponse2', 'Réponse3', 'Réponse4'],
+        data: seriesAnswers,
       },
       yAxis: [
         {
