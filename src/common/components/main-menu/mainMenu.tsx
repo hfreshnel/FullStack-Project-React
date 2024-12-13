@@ -28,7 +28,7 @@ export default function MainMenu() {
             className={'main-menu-button'}
           />
         </Link>
-        <Link to='/quiz/list'>
+        <Link to='/list/quiz'>
           <IconButton
             icon={faCircleQuestion}
             bgColor={Color.WHITE}
@@ -37,7 +37,7 @@ export default function MainMenu() {
           />
         </Link>
         {isAdmin && (
-          <Link to='/quiz/create'>
+          <Link to='/create/quiz'>
             <IconButton
               icon={faPlus}
               bgColor={Color.WHITE}
