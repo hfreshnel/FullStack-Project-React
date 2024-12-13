@@ -6,11 +6,11 @@
 }
 
 .text-button:active {
-    transform: scale(0.7);
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(0.7);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .text-button:hover {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
 }
