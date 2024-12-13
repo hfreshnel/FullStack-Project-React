@@ -2,6 +2,7 @@ import useAuthRepository from '../../../../common/repositories/auth/useAuthRepos
 import { TSignupRequest } from '../../../../common/services/auth/types/requests/TSignupRequest';
 import useFetchData from '../../../../common/hooks/useFetchData';
 import SignUpForm from '../../forms/SignUpForm/SignUpForm';
+import './SignUpContainer.css';
 
 /**
  * Add a behaviour when loading, success and error
@@ -21,9 +22,9 @@ const SignUpContainer = () => {
   };
 
   return (
-    <>
+    <div className='register-container'>
       <SignUpForm handleSignUp={handleSignup} />
-    </>
+    </div>
   );
 };
 

@@ -73,65 +73,63 @@ const SignUpForm = ({ handleSignUp }: SignUpFormProps) => {
   }, [error]);
 
   return (
-    <div className='register-container'>
-      <form className='register-form' onSubmit={handleSubmit}>
-        <Input
-          type={InputType.TEXT}
-          placeholder='Nom'
-          value={lastName}
-          onChange={e => setLastName(e.target.value)}
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <Input
-          type={InputType.TEXT}
-          placeholder='Prénom'
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <Input
-          type={InputType.EMAIL}
-          placeholder='Email'
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <Input
-          type={InputType.PASSWORD}
-          placeholder='Mot de passe'
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <Input
-          type={InputType.PASSWORD}
-          placeholder='Confirmation du mot de passe'
-          value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <TextButton
-          type='submit'
-          label="S'inscrire"
-          bgColor={Color.BLUE}
+    <form className='register-form' onSubmit={handleSubmit}>
+      <Input
+        type={InputType.TEXT}
+        placeholder='Nom'
+        value={lastName}
+        onChange={e => setLastName(e.target.value)}
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <Input
+        type={InputType.TEXT}
+        placeholder='Prénom'
+        value={firstName}
+        onChange={e => setFirstName(e.target.value)}
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <Input
+        type={InputType.EMAIL}
+        placeholder='Email'
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <Input
+        type={InputType.PASSWORD}
+        placeholder='Mot de passe'
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <Input
+        type={InputType.PASSWORD}
+        placeholder='Confirmation du mot de passe'
+        value={confirmPassword}
+        onChange={e => setConfirmPassword(e.target.value)}
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <TextButton
+        type='submit'
+        label="S'inscrire"
+        bgColor={Color.BLUE}
+        textColor={Color.WHITE}
+        className={'register-button'}
+      />
+      {error && (
+        <Toast
+          label={error}
+          visible={visible}
+          bgColor={Color.RED}
           textColor={Color.WHITE}
-          className={'register-button'}
         />
-        {error && (
-          <Toast
-            label={error}
-            visible={visible}
-            bgColor={Color.RED}
-            textColor={Color.WHITE}
-          />
-        )}
-      </form>
-    </div>
+      )}
+    </form>
   );
 };
 

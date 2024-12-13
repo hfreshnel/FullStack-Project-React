@@ -6,33 +6,26 @@ import './LoginForm.css';
 
 const LoginForm = () => {
   return (
-    <div className={'login-container'}>
-      <form className={'login-form'}>
-        <Input
-          type={InputType.EMAIL}
-          placeholder='Email'
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <Input
-          type={InputType.PASSWORD}
-          placeholder='Mot de passe'
-          textColor={Color.BLUE}
-          bgColor={Color.WHITE}
-        />
-        <TextButton
-          label='Se connecter'
-          bgColor={Color.BLUE}
-          textColor={Color.WHITE}
-          className={'login-button'}
-        />
-        <TextButton
-          label="S'inscrire"
-          bgColor={Color.BLUE}
-          textColor={Color.WHITE}
-        />
-      </form>
-    </div>
+    <form className={'login-form'}>
+      <Input
+        type={InputType.EMAIL}
+        placeholder='Email'
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <Input
+        type={InputType.PASSWORD}
+        placeholder='Mot de passe'
+        textColor={Color.BLUE}
+        bgColor={Color.WHITE}
+      />
+      <TextButton
+        label='Se connecter'
+        bgColor={Color.BLUE}
+        textColor={Color.WHITE}
+        className={'login-button'}
+      />
+    </form>
   );
 };
 
