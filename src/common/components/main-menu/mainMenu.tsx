@@ -1,6 +1,5 @@
 import './mainMenu.css';
 import Divider from '../divider/divider.tsx';
-import IconButton from '../icon-button/IconButton.tsx';
 import logo from '../../assets/logo.png';
 import {
   faCircleQuestion,
@@ -10,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Color } from '../../enums/Color.ts';
 import { Link } from 'react-router-dom';
+import IconButton from '../icon-button/IconButton.tsx';
 
 export default function MainMenu() {
   const isAdmin = true;

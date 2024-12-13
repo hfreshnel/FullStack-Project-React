@@ -6,7 +6,7 @@ const ListRouter = () => {
   return (
     <Routes>
       <Route path='/quiz' element={<QuizListContainer />} />
-      <Route path='/questions' element={<QuestionListContainer />} />
+      <Route path='/question' element={<QuestionListContainer />} />
     </Routes>
   );
 };
