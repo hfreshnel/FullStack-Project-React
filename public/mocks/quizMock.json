@@ -1,0 +1,44 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "libelle": "Quiz de Démonstration",
+      "questions": [
+        { "id": 1, "libelle": "Quelle est la capitale de la France ?" },
+        { "id": 2, "libelle": "Combien font 2 + 2 ?" },
+        { "id": 3, "libelle": "Quel est le plus grand océan du monde ?" },
+        { "id": 4, "libelle": "Qui a écrit 'Les Misérables' ?" }
+      ]
+    },
+    {
+      "id": 2,
+      "libelle": "Quiz sur les Animaux",
+      "questions": [
+        { "id": 1, "libelle": "Quel est le plus grand mammifère terrestre ?" },
+        { "id": 2, "libelle": "Combien de pattes ont les araignées ?" },
+        { "id": 3, "libelle": "Quel oiseau ne peut pas voler ?" },
+        { "id": 4, "libelle": "Combien de vies a un chat dans la mythologie ?" }
+      ]
+    },
+    {
+      "id": 3,
+      "libelle": "Quiz de Culture Générale",
+      "questions": [
+        { "id": 1, "libelle": "Quel est le plus long fleuve du monde ?" },
+        { "id": 2, "libelle": "Quelle est la plus haute montagne du monde ?" },
+        { "id": 3, "libelle": "Qui a peint la Joconde ?" },
+        { "id": 4, "libelle": "Dans quel pays se trouve la Tour Eiffel ?" }
+      ]
+    },
+    {
+      "id": 4,
+      "libelle": "Quiz sur la Technologie",
+      "questions": [
+        { "id": 1, "libelle": "Quelle entreprise a créé le système d'exploitation Windows ?" },
+        { "id": 2, "libelle": "Qu'est-ce qu'une URL ?" },
+        { "id": 3, "libelle": "Quelle année a vu le lancement du premier iPhone ?" },
+        { "id": 4, "libelle": "Qu'est-ce que HTML signifie ?" }
+      ]
+    }
+  ]
+}

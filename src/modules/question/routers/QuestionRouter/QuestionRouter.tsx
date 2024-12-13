@@ -4,7 +4,8 @@ import QuestionListContainer from '../../containers/QuestionListContainer/Questi
 const QuestionRouter = () => {
   return (
     <Routes>
-      <Route path='/list' element={<QuestionListContainer />} />
+      {/* Route avec un paramètre dynamique */}
+      <Route path='/list/:id' element={<QuestionListContainer />} />
     </Routes>
   );
 };

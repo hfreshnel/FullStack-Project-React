@@ -1,3 +1,40 @@
-.question-list-container-content {
-    margin-left: 100px;
+
+
+.questions-list {
+    display: flex;
+    flex-direction: column; /* Aligner les boutons verticalement */
+    align-items: center;    /* Centrer les boutons horizontalement */
+    gap: 10px;              /* Espacement entre les boutons */
+    width: 40%;
+    margin-left: 30%;
+    background: white;
+    border-radius: 20px;    /* Coins arrondis */
+    padding: 9px;
+  }
+  
+  .question-button {
+    width: 80%;            /* Réduire la largeur des boutons */
+    max-width: 300px;      /* Limiter la largeur maximale */
+    padding: 10px 15px;    /* Espacement interne */
+    text-align: center;    /* Centrer le texte dans le bouton */
+    border-radius: 5px;    /* Ajouter des coins arrondis */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+  }
+  
+.main-card{
+    width: auto;            /* Permet au conteneur de s'adapter */
+    margin-bottom: 5%;    /* Ajoute un espacement sous le MainCard */
+    margin-top: 5%;
+    text-align: center; 
+    font-size: 500px;
+    
 }
+
+.quiz-title-container .main-card {
+    font-size: 50px; /* Taille du texte */
+    font-weight: bold; /* Gras */
+    text-align: center; /* Centrer */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-top: 12%;
+  }
+
