@@ -23,7 +23,7 @@ const SignUpContainer = () => {
 
   return (
     <div className='register-container'>
-      <SignUpForm handleSignUp={handleSignup} />
+      <SignUpForm handleSignup={handleSignup} errorMessage={error ? error.message! : null} />
     </div>
   );
 };

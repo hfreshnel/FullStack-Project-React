@@ -8,4 +8,7 @@ export default defineConfig({
     port: 8080, // Specify your desired port number
     host: true, // Optional: allows access via network IP (useful for testing on other devices)
   },
+  define: {
+    'process.env': process.env,
+  },
 });

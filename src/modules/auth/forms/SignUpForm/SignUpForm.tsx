@@ -6,18 +6,15 @@ import TextButton from '../../../../common/components/text-button/TextButton.tsx
 import './SignUpForm.css';
 import React, { useState, useEffect } from 'react';
 import Toast from '../../../../common/components/toast/Toast.tsx';
+import { TSignUpFormProps } from './types/TSignUpFormProps.ts';
 
-interface SignUpFormProps {
-  handleSignUp: (data: TSignupRequest) => Promise<void>;
-}
-
-const SignUpForm = ({ handleSignUp }: SignUpFormProps) => {
+const SignUpForm = ({ handleSignup,errorMessage }: TSignUpFormProps) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(errorMessage);
   const [visible, setVisible] = useState(false);
   const [errorKey, setErrorKey] = useState(0);
 
@@ -30,34 +27,7 @@ const SignUpForm = ({ handleSignUp }: SignUpFormProps) => {
       setErrorKey(prevKey => prevKey + 1);
       return;
     }
-
-    try {
-      const response = await fetch(
-        'http://10.3.70.1:8000/public/auth/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            mail: email,
-            mdp: password,
-            prenom: firstName,
-            nom: lastName,
-          }),
-        },
-      );
-
-      if (!response.ok) {
-        const errorResponse = await response.json();
-        setError(errorResponse.message || 'Erreur lors de l’inscription.');
-        setErrorKey(prevKey => prevKey + 1);
-        return;
-      }
-    } catch (err) {
-      setError('Une erreur est survenue. Veuillez réessayer.');
-      setErrorKey(prevKey => prevKey + 1);
-    }
+    handleSignup({});
   };
 
   useEffect(() => {
