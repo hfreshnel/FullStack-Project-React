@@ -21,14 +21,14 @@ const axiosInstance = axios.create({
 export const apiRequest = async <T>(
   url: string,
   method: MethodEnum,
-  data?: any,
+  body?: any,
   config?: AxiosRequestConfig,
 ): Promise<TApiResponse<T>> => {
   try {
     const axiosConfig = {
-      url,
-      method,
-      data,
+      url: url,
+      method: method,
+      data: body,
       ...config,
     };
     const response = await axiosInstance(axiosConfig);

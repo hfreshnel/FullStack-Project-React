@@ -1,5 +1,5 @@
 import { IUserEntity } from '../../../../entities/IUserEntity';
 
-export type TSignupResponse = {
+export type TSigninResponse = {
   user: IUserEntity;
 };
