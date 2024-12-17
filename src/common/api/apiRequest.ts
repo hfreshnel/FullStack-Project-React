@@ -4,9 +4,9 @@ import { MethodEnum } from '../enums/MethodEnum';
 import { throwTypedError } from '../utils/sharedFunctions/api/apiShared';
 import { TApiResponse } from './types/TApiResponse';
 
-// Crée une instance Axios avec une base URL définie via les variables d'environnement
+console.log('process.env.REACT_APP_API_URL', import.meta.env.VITE_API_URL);
 const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || '',
+  baseURL: import.meta.env.VITE_API_URL || '',
 });
 
 /**
