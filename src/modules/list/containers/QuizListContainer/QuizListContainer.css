@@ -41,3 +41,27 @@
   gap: 10px;
   width: 100%;
 }
+
+.quiz-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.quiz-item-button {
+  flex: 1;
+}
+
+.quiz-item-icon {
+  background-color: transparent;
+}
+
+.quiz-item-icon svg {
+  color: #28a745;
+  width: 6rem;
+  height: 4rem;
+}

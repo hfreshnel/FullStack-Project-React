@@ -6,9 +6,14 @@ import TextButton from '../../../../common/components/text-button/TextButton.tsx
 import { Color } from '../../../../common/enums/Color.ts';
 import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
 import { useNavigate } from 'react-router-dom';
+import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
+import { faCaretRight, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+
+import { Link } from 'react-router-dom';
 
 const QuizListContainer: React.FC = () => {
   const navigate = useNavigate();
+  const isAdmin = true;
 
   const quizList = [
     {
@@ -51,12 +56,19 @@ const QuizListContainer: React.FC = () => {
         <div className='quiz-list-container'>
           <div className='quiz-list'>
             {quizList.map(quiz => (
-              <TextButton
-                key={quiz.id}
-                label={quiz.libelle}
-                bgColor={Color.BLUE}
-                textColor={Color.WHITE}
-              />
+              <div key={quiz.id} className='quiz-item'>
+                <TextButton
+                  label={quiz.libelle}
+                  bgColor={Color.BLUE}
+                  textColor={Color.WHITE}
+                  className='quiz-item-button'
+                />
+                <IconButton
+                  icon={faCaretRight}
+                  tooltip={'Démarrer le quiz'}
+                  className={'quiz-item-icon'}
+                />
+              </div>
             ))}
           </div>
         </div>
