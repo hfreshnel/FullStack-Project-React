@@ -12,7 +12,7 @@ import { Color } from '../../enums/Color.ts';
 import { Link } from 'react-router-dom';
 
 export default function MainMenu() {
-  const isAdmin = true;
+  const isAdmin = false;
   return (
     <div className='main-menu'>
       <div className='main-menu-header'>

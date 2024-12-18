@@ -1,4 +1,4 @@
-@import "../../../globals.css";
+@import '../../../globals.css';
 
 .icon-button {
   border-radius: 50%;
@@ -13,8 +13,8 @@
 }
 
 .icon-button:active {
-    transform: scale(0.7);
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(0.7);
+  box-shadow: none;
 }
 
 .icon-button:hover {
@@ -58,7 +58,9 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
   z-index: 10;
 }
 
