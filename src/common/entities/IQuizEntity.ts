@@ -10,5 +10,5 @@ export interface IQuizEntity {
   noQuestionCourante: number;
   etape: EtapeEnum;
   dateDebutQuestion: Date;
-  questionList: IQuestionEntity[];
+  questions: IQuestionEntity[];
 }

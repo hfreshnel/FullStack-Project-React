@@ -7,4 +7,5 @@ export enum Color {
   GREY = 'grey',
   WHITE = 'white',
   BLACK = 'black',
+  TRANSPARENT = 'transparent',
 }
