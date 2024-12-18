@@ -16,6 +16,8 @@ import Toast from '../../../../common/components/toast/Toast';
 const SignUpContainer = () => {
   const { Rsignup } = useAuthRepository({});
   const navigate = useNavigate();
+  const [toastKey, setToastKey] = useState(0);
+  setToastKey(prevKey => prevKey + 1);
   const handleSuccess = () => {
     navigate('/auth/login');
   };
@@ -23,6 +25,7 @@ const SignUpContainer = () => {
     if (message) {
       setToastErrorMessage(message);
       setToastVisible(true);
+      setToastKey(prevKey => prevKey + 1);
     } else {
       error?.message && setToastErrorMessage(error?.message);
     }
@@ -50,6 +53,7 @@ const SignUpContainer = () => {
     <div className='register-container'>
       {toastVisible && toastErrorMessage && (
         <Toast
+          key={toastKey}
           label={toastErrorMessage}
           bgColor={Color.RED}
           textColor={Color.WHITE}

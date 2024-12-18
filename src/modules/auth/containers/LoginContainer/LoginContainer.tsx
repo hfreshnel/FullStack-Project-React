@@ -13,19 +13,22 @@ import './LoginContainer.css';
 const LoginContainer = () => {
   const { Rsignin } = useAuthRepository({});
   const navigate = useNavigate();
+
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastErrorMessage, setToastErrorMessage] = useState('');
+  const [toastKey, setToastKey] = useState(0); 
+
   const handleSuccess = () => {
     console.log('connecté');
     navigate('/list/quiz');
   };
+
   const handleError = (message?: string) => {
-    if (message) {
-      setToastErrorMessage(message);
-      setToastVisible(true);
-    } else {
-      error?.message && setToastErrorMessage(error?.message);
-    }
+    setToastErrorMessage(message || error?.message || 'Une erreur est survenue');
+    setToastKey((prevKey) => prevKey + 1); 
     setToastVisible(true);
   };
+
   const { loadingState, fetchData, error } = useFetchData({
     onError: () => {
       handleError();
@@ -37,16 +40,15 @@ const LoginContainer = () => {
     onLoading: () => {},
   });
 
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastErrorMessage, setToastErrorMessage] = useState('');
-
   const handleSignin = async (data: TSigninRequest) => {
     await fetchData<TSigninRequest, TSigninResponse>(Rsignin, data);
   };
+
   return (
-    <div className={'login-container'}>
+    <div className="login-container">
       {toastVisible && toastErrorMessage && (
         <Toast
+          key={toastKey} 
           label={toastErrorMessage}
           bgColor={Color.RED}
           textColor={Color.WHITE}
@@ -54,7 +56,7 @@ const LoginContainer = () => {
         />
       )}
       <LoginForm handleSignin={handleSignin} />
-      <Link to='/auth/signup' className='register-link'>
+      <Link to="/auth/signup" className="register-link">
         <TextButton
           label="S'inscrire"
           bgColor={Color.BLUE}
