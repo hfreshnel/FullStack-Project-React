@@ -7,7 +7,12 @@ import { Color } from '../../../../common/enums/Color.ts';
 import { Size } from '../../../../common/enums/Size.ts';
 import './QuestionListContainer.css';
 
-const QuestionListContainer = () => {
+const QuestionListContainer = ({
+  role = 'user',
+}: {
+  role?: 'admin' | 'user';
+}) => {
+  const Admin = role === 'admin';
   return (
     <div className={'question-list-container'}>
       <MainMenu />
@@ -38,59 +43,68 @@ const QuestionListContainer = () => {
           textColor={Color.WHITE}
           className='choix'
         />
-        <IconButton
-          icon={faPenToSquare}
-          iconColor={Color.YELLOW}
-          bgColor={Color.WHITE}
-          className='edit'
-        />
+        {Admin && (
+          <IconButton
+            icon={faPenToSquare}
+            iconColor={Color.YELLOW}
+            bgColor={Color.WHITE}
+            className='edit'
+          />
+        )}
         <MainCard
           label='Réponse 2'
           bgColor={Color.BLUE}
           textColor={Color.WHITE}
           className='choix'
         />
-        <IconButton
-          icon={faPenToSquare}
-          iconColor={Color.YELLOW}
-          bgColor={Color.WHITE}
-          className='edit'
-        />
+        {Admin && (
+          <IconButton
+            icon={faPenToSquare}
+            iconColor={Color.YELLOW}
+            bgColor={Color.WHITE}
+            className='edit'
+          />
+        )}
         <MainCard
           label='Réponse 3'
           bgColor={Color.BLUE}
           textColor={Color.WHITE}
           className='choix'
         />
-        <IconButton
-          icon={faPenToSquare}
-          iconColor={Color.YELLOW}
-          bgColor={Color.WHITE}
-          className='edit'
-        />
+        {Admin && (
+          <IconButton
+            icon={faPenToSquare}
+            iconColor={Color.YELLOW}
+            bgColor={Color.WHITE}
+            className='edit'
+          />
+        )}
         <MainCard
           label='Réponse 4'
           bgColor={Color.BLUE}
           textColor={Color.WHITE}
           className='choix'
         />
-        <IconButton
-          icon={faPenToSquare}
-          iconColor={Color.YELLOW}
-          bgColor={Color.WHITE}
-          className='edit'
-        />
+        {Admin && (
+          <IconButton
+            icon={faPenToSquare}
+            iconColor={Color.YELLOW}
+            bgColor={Color.WHITE}
+            className='edit'
+          />
+        )}
       </div>
 
-      <IconButton icon={faPenToSquare} iconColor={Color.YELLOW} />
-      <TextButton
-        label={'Sauvegarder la question '}
-        borderColor={Color.BLUE}
-        bgColor={Color.WHITE}
-        textColor={Color.BLUE}
-        btnSize={Size.LARGE}
-        className='button-sauvegarder'
-      ></TextButton>
+      {Admin && (
+        <TextButton
+          label={'Sauvegarder la question '}
+          borderColor={Color.BLUE}
+          bgColor={Color.WHITE}
+          textColor={Color.BLUE}
+          btnSize={Size.LARGE}
+          className='button-sauvegarder'
+        />
+      )}
     </div>
   );
 };
