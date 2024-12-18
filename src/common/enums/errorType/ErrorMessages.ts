@@ -1,7 +1,8 @@
 import { ErrorTypeEnum } from './ErrorTypeEnum';
 
 export const allErrorMessages: Record<ErrorTypeEnum, string> = {
-  [ErrorTypeEnum.auth_failed]: 'Signup failed. Please try again.',
   [ErrorTypeEnum.unknown]: 'An unknown error occurred.',
-  [ErrorTypeEnum.invalid_credentials]: 'E-mail ou mot de passe incorrect.',
+  [ErrorTypeEnum.auth_invalid_credentials]: 'E-mail ou mot de passe incorrect.',
+  [ErrorTypeEnum.auth_user_already_exists]:
+    'Cet utilisateur est déjà existant.',
 };

@@ -1,5 +1,5 @@
 export enum ErrorTypeEnum {
-  auth_failed = 'auth.failed',
   unknown = 'unknown',
-  invalid_credentials = 'auth.invalid_credentials',
+  auth_invalid_credentials = 'auth.invalid_credentials',
+  auth_user_already_exists = 'auth.user_already_exists',
 }
