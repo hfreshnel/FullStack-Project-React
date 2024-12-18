@@ -5,5 +5,4 @@ export interface IQuestionEntity {
   id: number;
   libelle: string;
   propsitionList: IPropositionEntity[];
-  quizList: IQuizEntity[];
 }

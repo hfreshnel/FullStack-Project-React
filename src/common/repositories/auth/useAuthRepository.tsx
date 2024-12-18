@@ -9,6 +9,7 @@ import { LOCALSTORAGE_USER } from '../../utils/consts/consts';
 import { TuseAuthRepositoryProps } from './types/TuseAuthRepositoryProps';
 
 const useAuthRepository = (props: TuseAuthRepositoryProps) => {
+  
   const Rsignup = async (request: TSignupRequest): Promise<TSignupResponse> => {
     return await Ssignup(request);
   };
@@ -16,6 +17,8 @@ const useAuthRepository = (props: TuseAuthRepositoryProps) => {
     const response = await Ssignin(request);
 
     localStorage.setItem(LOCALSTORAGE_USER, JSON.stringify(response));
+
+
 
     return response;
   };

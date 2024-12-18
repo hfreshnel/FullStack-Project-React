@@ -17,7 +17,7 @@ export const Ssignup = async (
   );
   console.log('reponse', response);
 
-  return response.data;
+  return response.data!;
 };
 export const Ssignin = async (
   request: TSigninRequest,
@@ -27,7 +27,7 @@ export const Ssignin = async (
     MethodEnum.POST,
     request,
   );
-  return response.data;
+  return response.data!;
 };
 
 export const Ssignout = async (
@@ -39,5 +39,5 @@ export const Ssignout = async (
     request,
   );
 
-  return response.data;
+  return response.data!;
 };
