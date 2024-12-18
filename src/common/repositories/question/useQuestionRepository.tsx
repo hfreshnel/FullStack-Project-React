@@ -15,8 +15,10 @@ import { TDeleteQuestionResponse } from '../../services/question/types/responses
 import { TFindAllQuestionResponse } from '../../services/question/types/responses/TFindAllQuestionResponse';
 import { TFindQuestionResponse } from '../../services/question/types/responses/TFindQuestionResponse';
 import { TUpdateQuestionResponse } from '../../services/question/types/responses/TUpdateQuestionResponse';
+import { useQuestionContext } from '../../contexts/QuestionContext/QuestionContext';
 
 const useQuestionRepository = (props: TuseQuestionRepositoryProps) => {
+  const { setCurrentQuestion } = useQuestionContext();
   const RfindAllQuestion = async (): Promise<TFindAllQuestionResponse> => {
     return await SfindAllQuestion();
   };
@@ -24,7 +26,9 @@ const useQuestionRepository = (props: TuseQuestionRepositoryProps) => {
   const RfindQuestion = async (
     request: TFindQuestionRequest,
   ): Promise<TFindQuestionResponse> => {
-    return await SfindQuestion(request);
+    const response = await SfindQuestion(request);
+    setCurrentQuestion(response);
+    return response;
   };
 
   const RdeleteQuestion = async (
