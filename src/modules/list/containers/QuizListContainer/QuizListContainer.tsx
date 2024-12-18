@@ -1,59 +1,39 @@
-import React from 'react';
-import './QuizListContainer.css';
-import { QuizEtatEnum } from '../../../../common/enums/QuizEtatEnum';
-import { EtapeEnum } from '../../../../common/enums/EtapeEnum';
-import TextButton from '../../../../common/components/text-button/TextButton.tsx';
-import { Color } from '../../../../common/enums/Color.ts';
-import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
-import { useNavigate } from 'react-router-dom';
-import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
+import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
+import TextButton from '../../../../common/components/text-button/TextButton.tsx';
+import { useQuizContext } from '../../../../common/contexts/QuizContext/QuizContext.tsx';
+import { Color } from '../../../../common/enums/Color.ts';
+import { LoadingStateEnum } from '../../../../common/enums/LoadingStateEnum.ts';
+import useFetchData from '../../../../common/hooks/useFetchData.tsx';
+import useQuizRepository from '../../../../common/repositories/quiz/useQuizRepository.tsx';
+import './QuizListContainer.css';
 
 const QuizListContainer: React.FC = () => {
   const navigate = useNavigate();
   const isAdmin = true;
 
-  const quizList = [
-    {
-      id: 1,
-      libelle: 'Quiz 1',
-      etat: QuizEtatEnum.PENDING,
-      dateDebutQuiz: new Date('2023-12-01T10:00:00'),
-      noQuestionCourante: 2,
-      etape: EtapeEnum.SHOW_QUESTION,
-      dateDebutQuestion: new Date('2023-12-01T10:05:00'),
-      questions: [],
-    },
-    {
-      id: 2,
-      libelle: 'Quiz 2',
-      etat: QuizEtatEnum.DONE,
-      dateDebutQuiz: new Date('2023-11-20T15:00:00'),
-      noQuestionCourante: 0,
-      etape: EtapeEnum.SHOW_STATS,
-      dateDebutQuestion: new Date('2023-11-20T15:30:00'),
-      questions: [],
-    },
-    {
-      id: 3,
-      libelle: 'Quiz 3',
-      etat: QuizEtatEnum.INACTIVE,
-      dateDebutQuiz: new Date('2023-12-05T14:00:00'),
-      noQuestionCourante: 0,
-      etape: EtapeEnum.SHOW_ANSWERS,
-      dateDebutQuestion: new Date('2023-12-05T14:00:00'),
-      questions: [],
-    },
-  ];
+  const { allQuizzes } = useQuizContext();
+  const { RfindAllQuiz, RupdateQuiz } = useQuizRepository({});
+  const { fetchData, error, loadingState } = useFetchData({});
 
-  return (
+  const handleFindAllQuiz = async () => {
+    await fetchData(RfindAllQuiz, {});
+  };
+
+  useEffect(() => {
+    !allQuizzes && handleFindAllQuiz();
+  }, []);
+
+  return allQuizzes ? (
     <>
       <MainMenu />
       <div className='quiz-list-title-container'>
         <h1 className='quiz-list-title'>Liste des Quiz</h1>
         <div className='quiz-list-container'>
-          {quizList.map(quiz => (
+          {allQuizzes.map(quiz => (
             <Link
               to={'/list/question/' + quiz.id}
               className={'quiz-link-to-create quiz-item'}
@@ -86,6 +66,8 @@ const QuizListContainer: React.FC = () => {
         </Link>
       </div>
     </>
+  ) : (
+    loadingState === LoadingStateEnum.LOADING && <>Chargement...</>
   );
 };
 

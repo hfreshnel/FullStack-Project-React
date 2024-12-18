@@ -5,9 +5,11 @@ import UserPrivateRoute from './common/containers/UserPrivateRoute/UserPrivateRo
 import CreateRouter from './modules/create/routers/CreateRouter/CreateRouter.tsx';
 import ListRouter from './modules/list/routers/ListRouter/ListRouter.tsx';
 import ProfileRouter from './modules/profile/routers/ProfileRouter/ProfileRouter.tsx';
+import { AppContext } from './common/contexts/AppContext/AppContext.tsx';
 
 const App: React.FC = () => {
   return (
+    <AppContext>
     <Router>
       <Routes>
         <Route element={<UserPrivateRoute />}>
@@ -18,6 +20,7 @@ const App: React.FC = () => {
         <Route path='/auth/*' element={<AuthRouter />} />
       </Routes>
     </Router>
+    </AppContext>
   );
 };
 

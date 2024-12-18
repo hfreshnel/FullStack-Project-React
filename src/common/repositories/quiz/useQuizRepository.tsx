@@ -1,3 +1,4 @@
+import { useQuizContext } from '../../contexts/QuizContext/QuizContext';
 import {
   SfindAllQuiz,
   SfindQuiz,
@@ -17,7 +18,10 @@ import { TUpdateQuizResponse } from '../../services/quiz/types/responses/TUpdate
 import { TuseQuizRepositoryProps } from './types/TuseQuizRepositoryProps';
 
 const useQuizRepository = (props: TuseQuizRepositoryProps) => {
+  const {setAllQuizzes} = useQuizContext();
   const RfindAllQuiz = async (): Promise<TFindAllQuizResponse> => {
+    const response = await SfindAllQuiz();
+    setAllQuizzes(response);
     return await SfindAllQuiz();
   };
 
