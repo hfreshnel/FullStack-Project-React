@@ -23,7 +23,7 @@ interface Quiz {
 const QuestionListContainer = () => {
   const { id } = useParams<{ id: string }>();
   const [quiz, setQuiz] = useState<Quiz | null>(null);
-  const isAdmin = true; // Variable pour définir si l'utilisateur est admin
+  const isAdmin = false; // Variable pour définir si l'utilisateur est admin
 
   useEffect(() => {
     fetch("/mocks/quizMock.json")
