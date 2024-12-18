@@ -12,7 +12,11 @@ const useAuthRepository = (props: TuseAuthRepositoryProps) => {
     return await Ssignup(request);
   };
   const Rsignin = async (request: TSigninRequest): Promise<TSigninResponse> => {
-    return await Ssignin(request);
+    const response = await Ssignin(request);
+
+    localStorage.setItem('user', JSON.stringify(response));
+
+    return response;
   };
   const Rsignout = async (
     request: TSignoutRequest,

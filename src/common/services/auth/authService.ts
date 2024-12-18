@@ -33,14 +33,12 @@ export const Ssignin = async (request: TSigninRequest) => {
     request,
   );
   const mockData: TSigninResponse | null = {
-    user: {
-      id: 0,
-      nom: 'Abiguime',
-      prenom: 'Merebe',
-      mail: 'merebe@gmail.com',
-      mdp: '',
-      role: 0,
-    },
+    id: 0,
+    nom: 'Abiguime',
+    prenom: 'Merebe',
+    mail: 'merebe@gmail.com',
+    mdp: '',
+    role: 0,
   };
   return response.data ?? mockData;
 };

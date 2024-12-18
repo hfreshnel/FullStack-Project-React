@@ -1,1 +1,4 @@
-export type TSigninRequest = {};
+export type TSigninRequest = {
+  mail: string;
+  mdp: string;
+};

@@ -23,6 +23,8 @@ const SignUpContainer = () => {
     if (message) {
       setToastErrorMessage(message);
       setToastVisible(true);
+    } else {
+      error?.message && setToastErrorMessage(error?.message);
     }
     setToastVisible(true);
   };
@@ -43,10 +45,6 @@ const SignUpContainer = () => {
   const handleSignup = async (data: TSignupRequest) => {
     await fetchData<TSignupRequest, TSignupResponse>(Rsignup, data);
   };
-
-  useEffect(() => {
-    console.log('error a changé', error);
-  }, [error]);
 
   return (
     <div className='register-container'>
