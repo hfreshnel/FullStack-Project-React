@@ -3,6 +3,11 @@ import { TSignupRequest } from '../../../../common/services/auth/types/requests/
 import useFetchData from '../../../../common/hooks/useFetchData';
 import SignUpForm from '../../forms/SignUpForm/SignUpForm';
 import './SignUpContainer.css';
+import { useEffect, useState } from 'react';
+import { TSignupResponse } from '../../../../common/services/auth/types/responses/TSignupResponse';
+import { useNavigate } from 'react-router-dom';
+import { Color } from '../../../../common/enums/Color';
+import Toast from '../../../../common/components/toast/Toast';
 
 /**
  * Add a behaviour when loading, success and error
@@ -10,20 +15,52 @@ import './SignUpContainer.css';
  */
 const SignUpContainer = () => {
   const { Rsignup } = useAuthRepository({});
+  const navigate = useNavigate();
+  const handleSuccess = () => {
+    navigate('/auth/login');
+  };
+  const handleError = (message?: string) => {
+    if (message) {
+      setToastErrorMessage(message);
+      setToastVisible(true);
+    } else {
+      error?.message && setToastErrorMessage(error?.message);
+    }
+    setToastVisible(true);
+  };
   const { loadingState, fetchData, error } = useFetchData({
-    onError: () => {},
-    onSuccess: () => {},
+    onError: () => {
+      handleError();
+    },
+    onSuccess: () => {
+      handleSuccess();
+    },
     onIdle: () => {},
     onLoading: () => {},
   });
 
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastErrorMessage, setToastErrorMessage] = useState('');
+
   const handleSignup = async (data: TSignupRequest) => {
-    await fetchData(Rsignup, data);
+    await fetchData<TSignupRequest, TSignupResponse>(Rsignup, data);
   };
 
   return (
     <div className='register-container'>
-      <SignUpForm handleSignUp={handleSignup} />
+      {toastVisible && toastErrorMessage && (
+        <Toast
+          label={toastErrorMessage}
+          bgColor={Color.RED}
+          textColor={Color.WHITE}
+          visible={toastVisible}
+        />
+      )}
+      <SignUpForm
+        handleSignup={handleSignup}
+        apiError={error}
+        handleError={handleError}
+      />
     </div>
   );
 };

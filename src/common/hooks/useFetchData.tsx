@@ -32,7 +32,7 @@ import { useEffect, useState } from 'react';
 import { LoadingStateEnum } from '../enums/LoadingStateEnum';
 import { TuseFetchDataProps } from './types/TuseFetchDataProps';
 import { TError } from './types/TError';
-import { ErrorTypeEnum } from '../enums/ErrorTypeEnum';
+import { ErrorTypeEnum } from '../enums/errorType/ErrorTypeEnum';
 
 const useFetchData = (props: TuseFetchDataProps) => {
   // State to track loading state (IDLE, LOADING, SUCCESS, ERROR)
@@ -94,12 +94,13 @@ const useFetchData = (props: TuseFetchDataProps) => {
 
       return response;
     } catch (err: any) {
+      console.log('cateched error', err);
       // Transform the caught error into the TError structure
       const transformedError: TError = {
         statusCode: err.statusCode || 500,
         message: err.message || 'An unexpected error occurred',
         data: err.data || null,
-        type: err.type || ErrorTypeEnum.UNKNOWN,
+        type: err.type || ErrorTypeEnum.unknown,
       };
 
       // Set the error state with the transformed error
@@ -107,6 +108,8 @@ const useFetchData = (props: TuseFetchDataProps) => {
 
       // Set loading state to ERROR when an error occurs
       setLoadingState(LoadingStateEnum.ERROR);
+
+      return null;
     }
   };
 
