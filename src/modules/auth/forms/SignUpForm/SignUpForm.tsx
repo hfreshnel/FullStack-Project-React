@@ -1,46 +1,34 @@
-import { TSignupRequest } from '../../../../common/services/auth/types/requests/TSignupRequest.ts';
+import React, { useEffect, useState } from 'react';
 import Input from '../../../../common/components/input/Input.tsx';
-import { InputType } from '../../../../common/enums/InputType.ts';
-import { Color } from '../../../../common/enums/Color.ts';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
-import './SignUpForm.css';
-import React, { useState, useEffect } from 'react';
 import Toast from '../../../../common/components/toast/Toast.tsx';
+import { Color } from '../../../../common/enums/Color.ts';
+import { InputType } from '../../../../common/enums/InputType.ts';
+import './SignUpForm.css';
 import { TSignUpFormProps } from './types/TSignUpFormProps.ts';
 
-const SignUpForm = ({ handleSignup,errorMessage }: TSignUpFormProps) => {
+const SignUpForm = ({ handleSignup, handleError }: TSignUpFormProps) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState<string | null>(errorMessage);
-  const [visible, setVisible] = useState(false);
-  const [errorKey, setErrorKey] = useState(0);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setError(null);
 
     if (password !== confirmPassword) {
-      setError('Les mots de passe ne correspondent pas.');
-      setErrorKey(prevKey => prevKey + 1);
+      handleError('Les mots de passe ne correspondent pas');
       return;
     }
-    handleSignup({});
+
+    await handleSignup({
+      mail: email,
+      mdp: password,
+      prenom: firstName,
+      nom: lastName,
+    });
   };
-
-  useEffect(() => {
-    if (error) {
-      setVisible(true);
-      const timeout = setTimeout(() => {
-        setVisible(false);
-        setTimeout(() => setError(null), 500);
-      }, 1000);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [error]);
 
   return (
     <form className='register-form' onSubmit={handleSubmit}>
@@ -91,14 +79,6 @@ const SignUpForm = ({ handleSignup,errorMessage }: TSignUpFormProps) => {
         textColor={Color.WHITE}
         className={'register-button'}
       />
-      {error && (
-        <Toast
-          label={error}
-          visible={visible}
-          bgColor={Color.RED}
-          textColor={Color.WHITE}
-        />
-      )}
     </form>
   );
 };

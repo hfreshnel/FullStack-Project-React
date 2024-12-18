@@ -94,6 +94,7 @@ const useFetchData = (props: TuseFetchDataProps) => {
 
       return response;
     } catch (err: any) {
+      console.log('cateched error', err);
       // Transform the caught error into the TError structure
       const transformedError: TError = {
         statusCode: err.statusCode || 500,
@@ -107,6 +108,8 @@ const useFetchData = (props: TuseFetchDataProps) => {
 
       // Set loading state to ERROR when an error occurs
       setLoadingState(LoadingStateEnum.ERROR);
+
+      return null;
     }
   };
 

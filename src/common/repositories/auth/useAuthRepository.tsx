@@ -22,6 +22,8 @@ const useAuthRepository = (props: TuseAuthRepositoryProps) => {
 
   return {
     Rsignup,
+    Rsignin,
+    Rsignout,
   };
 };
 
