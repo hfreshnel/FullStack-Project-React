@@ -84,6 +84,10 @@ body {
     background-color: var(--primary-white);
 }
 
+.bg-secondary-white {
+    background-color: var(--secondary-white);
+}
+
 .text-black {
     color: var(--primary-black);
 }

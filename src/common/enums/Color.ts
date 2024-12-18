@@ -7,4 +7,5 @@ export enum Color {
   GREY = 'grey',
   WHITE = 'white',
   BLACK = 'black',
+  SECONDARY_WHITE = 'secondary-white' 
 }

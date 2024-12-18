@@ -8,6 +8,7 @@ import { faXmark , faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Color } from '../../../../common/enums/Color.ts';
 import './QuestionListContainer.css';
 import { isWhiteSpaceLike } from 'typescript';
+import { Size } from '../../../../common/enums/Size.ts';
 interface Question {
   id: number;
   libelle: string;
@@ -57,8 +58,9 @@ const QuestionListContainer = () => {
           {isAdmin && (
             <IconButton
               icon={faPenToSquare}
-              bgColor={Color.WHITE}
+              bgColor={Color.SECONDARY_WHITE}
               iconColor={Color.YELLOW}
+              btnSize={Size.LARGE}
             />
           )}
         </div>
