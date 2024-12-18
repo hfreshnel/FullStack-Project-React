@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { LOCALSTORAGE_USER } from '../../utils/consts/consts';
-import { TUserPrivateRouteProps } from './types/TUserPrivateRouteProps';
 
 export default function UserPrivateRoute() {
   const isAuthenticated = () => {

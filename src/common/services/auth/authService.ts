@@ -14,17 +14,8 @@ export const Ssignup = async (request: TSignupRequest) => {
     request,
   );
   console.log('reponse', response);
-  const mockData: TSignupResponse | null = {
-    user: {
-      id: 0,
-      nom: 'Abiguime',
-      prenom: 'Merebe',
-      mail: 'merebe@gmail.com',
-      mdp: '',
-      role: 0,
-    },
-  };
-  return response.data ?? mockData;
+
+  return response.data;
 };
 export const Ssignin = async (request: TSigninRequest) => {
   const response = await apiRequest<TSigninResponse>(
@@ -32,15 +23,7 @@ export const Ssignin = async (request: TSigninRequest) => {
     MethodEnum.POST,
     request,
   );
-  const mockData: TSigninResponse | null = {
-    id: 0,
-    nom: 'Abiguime',
-    prenom: 'Merebe',
-    mail: 'merebe@gmail.com',
-    mdp: '',
-    role: 0,
-  };
-  return response.data ?? mockData;
+  return response.data;
 };
 
 export const Ssignout = async (request: TSignoutRequest) => {
@@ -49,6 +32,6 @@ export const Ssignout = async (request: TSignoutRequest) => {
     MethodEnum.POST,
     request,
   );
-  const mockData: TSignoutResponse | null = {};
-  return response.data ?? mockData;
+
+  return response.data;
 };

@@ -24,21 +24,21 @@ export const apiRequest = async <T>(
   body?: any,
   config?: AxiosRequestConfig,
 ): Promise<TApiResponse<T>> => {
-  try {
-    const axiosConfig = {
-      url: url,
-      method: method,
-      data: body,
-      ...config,
-    };
-    const response = await axiosInstance(axiosConfig);
-    console.log('responseresponse', response);
-    const responseData: TApiResponse<T> = response.data;
-    if (responseData.error) {
-      throwTypedError(responseData.error, responseData.code);
-    }
-    return responseData;
-  } catch (error) {
+  //try {
+  const axiosConfig = {
+    url: url,
+    method: method,
+    data: body,
+    ...config,
+  };
+  const response = await axiosInstance(axiosConfig);
+  console.log('responseresponse', response);
+  const responseData: TApiResponse<T> = response.data;
+  if (responseData.error) {
+    throwTypedError(responseData.error, responseData.code);
+  }
+  return responseData;
+  /*} catch (error) {
     // Gestion des erreurs : extraction des détails pertinents
     let errorType: ErrorTypeEnum = ErrorTypeEnum.unknown;
     let errorCode: number = 400;
@@ -53,5 +53,5 @@ export const apiRequest = async <T>(
       error: errorType,
       code: errorCode,
     };
-  }
+  }*/
 };
