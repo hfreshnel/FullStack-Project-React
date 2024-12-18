@@ -6,3 +6,6 @@ export type TError = {
   data?: any;
   type: ErrorTypeEnum;
 };
+export function isTError(error: any): error is TError {
+  return (error as TError).statusCode !== undefined;
+}

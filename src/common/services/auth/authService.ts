@@ -7,7 +7,9 @@ import { TSigninResponse } from './types/responses/TSigninResponse';
 import { TSignoutResponse } from './types/responses/TSignoutResponse';
 import { TSignupResponse } from './types/responses/TSignupResponse';
 
-export const Ssignup = async (request: TSignupRequest) => {
+export const Ssignup = async (
+  request: TSignupRequest,
+): Promise<TSignupResponse> => {
   const response = await apiRequest<TSignupResponse>(
     '/public/auth/register',
     MethodEnum.POST,
@@ -17,7 +19,9 @@ export const Ssignup = async (request: TSignupRequest) => {
 
   return response.data;
 };
-export const Ssignin = async (request: TSigninRequest) => {
+export const Ssignin = async (
+  request: TSigninRequest,
+): Promise<TSigninResponse> => {
   const response = await apiRequest<TSigninResponse>(
     '/public/auth/login',
     MethodEnum.POST,
@@ -26,7 +30,9 @@ export const Ssignin = async (request: TSigninRequest) => {
   return response.data;
 };
 
-export const Ssignout = async (request: TSignoutRequest) => {
+export const Ssignout = async (
+  request: TSignoutRequest,
+): Promise<TSignoutResponse> => {
   const response = await apiRequest<TSignoutResponse>(
     '/public/auth/logout',
     MethodEnum.POST,

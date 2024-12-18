@@ -33,6 +33,7 @@ import { LoadingStateEnum } from '../enums/LoadingStateEnum';
 import { TuseFetchDataProps } from './types/TuseFetchDataProps';
 import { TError } from './types/TError';
 import { ErrorTypeEnum } from '../enums/errorType/ErrorTypeEnum';
+import { allErrorMessages } from '../enums/errorType/ErrorMessages';
 
 const useFetchData = (props: TuseFetchDataProps) => {
   // State to track loading state (IDLE, LOADING, SUCCESS, ERROR)
@@ -98,7 +99,7 @@ const useFetchData = (props: TuseFetchDataProps) => {
       // Transform the caught error into the TError structure
       const transformedError: TError = {
         statusCode: err.statusCode || 500,
-        message: err.message || 'An unexpected error occurred',
+        message: err.message || allErrorMessages[ErrorTypeEnum.unknown],
         data: err.data || null,
         type: err.type || ErrorTypeEnum.unknown,
       };

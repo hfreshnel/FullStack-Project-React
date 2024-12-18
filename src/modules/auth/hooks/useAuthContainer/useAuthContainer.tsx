@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetchData from '../../../../common/hooks/useFetchData';
+import { allErrorMessages } from '../../../../common/enums/errorType/ErrorMessages';
+import { ErrorTypeEnum } from '../../../../common/enums/errorType/ErrorTypeEnum';
 
 const useAuthContainer = <TRequest, TResponse>(
   repositoryMethod: (data: TRequest) => Promise<TResponse>,
@@ -23,7 +25,7 @@ const useAuthContainer = <TRequest, TResponse>(
       if (error?.message) {
         setToastErrorMessage(error.message);
       } else {
-        setToastErrorMessage('Une erreur est survenue');
+        setToastErrorMessage(allErrorMessages[ErrorTypeEnum.unknown]);
       }
     }
     setToastKey(prevKey => prevKey + 1); // Forcer le re-rendu du toast

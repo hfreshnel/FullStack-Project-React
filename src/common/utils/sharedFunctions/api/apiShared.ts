@@ -6,7 +6,7 @@ import { TError } from '../../../hooks/types/TError';
 export const throwTypedError = (
   type: ErrorTypeEnum,
   statusCode: number = 400,
-) => {
+): never => {
   let message = allErrorMessages[type];
 
   const error: TError = {
