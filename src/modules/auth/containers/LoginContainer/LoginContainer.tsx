@@ -15,7 +15,7 @@ const LoginContainer = () => {
   const navigate = useNavigate();
   const handleSuccess = () => {
     console.log('connecté');
-    navigate('/private/connected');
+    navigate('/list/quiz');
   };
   const handleError = (message?: string) => {
     if (message) {

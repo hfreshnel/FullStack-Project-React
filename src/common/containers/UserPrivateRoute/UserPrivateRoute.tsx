@@ -1,8 +1,8 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { LOCALSTORAGE_USER } from '../../utils/consts/consts';
 import { TUserPrivateRouteProps } from './types/TUserPrivateRouteProps';
 
-export default function UserPrivateRoute({ children }: TUserPrivateRouteProps) {
+export default function UserPrivateRoute() {
   const isAuthenticated = () => {
     const user = localStorage.getItem(LOCALSTORAGE_USER);
     return user !== null;
@@ -13,5 +13,5 @@ export default function UserPrivateRoute({ children }: TUserPrivateRouteProps) {
     return <Navigate to='/auth/login' replace />;
   }
 
-  return <>{children}</>;
+  return <Outlet />;
 }
