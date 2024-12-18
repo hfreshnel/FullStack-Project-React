@@ -5,6 +5,7 @@ import { TSignupRequest } from '../../services/auth/types/requests/TSignupReques
 import { TSigninResponse } from '../../services/auth/types/responses/TSigninResponse';
 import { TSignoutResponse } from '../../services/auth/types/responses/TSignoutResponse';
 import { TSignupResponse } from '../../services/auth/types/responses/TSignupResponse';
+import { LOCALSTORAGE_USER } from '../../utils/consts/consts';
 import { TuseAuthRepositoryProps } from './types/TuseAuthRepositoryProps';
 
 const useAuthRepository = (props: TuseAuthRepositoryProps) => {
@@ -14,7 +15,7 @@ const useAuthRepository = (props: TuseAuthRepositoryProps) => {
   const Rsignin = async (request: TSigninRequest): Promise<TSigninResponse> => {
     const response = await Ssignin(request);
 
-    localStorage.setItem('user', JSON.stringify(response));
+    localStorage.setItem(LOCALSTORAGE_USER, JSON.stringify(response));
 
     return response;
   };
