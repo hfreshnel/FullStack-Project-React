@@ -10,7 +10,7 @@ export default function UserPrivateRoute({ children }: TUserPrivateRouteProps) {
 
   if (!isAuthenticated()) {
     localStorage.removeItem(LOCALSTORAGE_USER);
-    return <Navigate to='/signin' replace />;
+    return <Navigate to='/auth/login' replace />;
   }
 
   return <>{children}</>;

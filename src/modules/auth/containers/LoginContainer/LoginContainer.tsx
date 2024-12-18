@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import Toast from '../../../../common/components/toast/Toast.tsx';
 import { Color } from '../../../../common/enums/Color.ts';
@@ -12,8 +12,10 @@ import './LoginContainer.css';
 
 const LoginContainer = () => {
   const { Rsignin } = useAuthRepository({});
+  const navigate = useNavigate();
   const handleSuccess = () => {
     console.log('connecté');
+    navigate('/private/connected');
   };
   const handleError = (message?: string) => {
     if (message) {
