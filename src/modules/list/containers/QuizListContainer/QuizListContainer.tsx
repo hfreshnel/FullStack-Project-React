@@ -16,7 +16,7 @@ const QuizListContainer: React.FC = () => {
   const isAdmin = true;
 
   const { allQuizzes } = useQuizContext();
-  const { RfindAllQuiz, RupdateQuiz } = useQuizRepository({});
+  const { RfindAllQuiz } = useQuizRepository({});
   const { fetchData, error, loadingState } = useFetchData({});
 
   const handleFindAllQuiz = async () => {
@@ -45,25 +45,37 @@ const QuizListContainer: React.FC = () => {
                 textColor={Color.WHITE}
                 className='quiz-item-button'
               />
-              <IconButton
-                icon={faCaretRight}
-                bgColor={Color.TRANSPARENT}
-                iconColor={Color.GREEN}
-                borderColor={Color.TRANSPARENT}
-                tooltip={'Démarrer le quiz'}
-                className={'quiz-item-icon'}
+
+              {isAdmin && (
+                <IconButton
+                  icon={faCaretRight}
+                  bgColor={Color.TRANSPARENT}
+                  iconColor={Color.GREEN}
+                  borderColor={Color.TRANSPARENT}
+                  tooltip={'Démarrer le quiz'}
+                  className={'quiz-item-icon'}
+                />
+              )}
+              <TextButton
+                label={getButtonLabel(quiz.etat)}
+                bgColor={getButtonColor(quiz.etat)}
+                textColor={Color.WHITE}
+                className='quiz-item-button quiz-item-button-state'
               />
             </Link>
           ))}
         </div>
-        <Link to={'/create/quiz'} className={'quiz-link-to-create'}>
-          <TextButton
-            label='Créer un nouveau quiz'
-            bgColor={Color.WHITE}
-            textColor={Color.BLUE}
-            borderColor={Color.BLUE}
-          />
-        </Link>
+
+        {isAdmin && (
+          <Link to={'/create/quiz'} className={'quiz-link-to-create'}>
+            <TextButton
+              label='Créer un nouveau quiz'
+              bgColor={Color.WHITE}
+              textColor={Color.BLUE}
+              borderColor={Color.BLUE}
+            />
+          </Link>
+        )}
       </div>
     </>
   ) : (
@@ -72,3 +84,30 @@ const QuizListContainer: React.FC = () => {
 };
 
 export default QuizListContainer;
+
+const getButtonLabel = (etat: number): string => {
+  switch (etat) {
+    case 0:
+      return 'Pas lancé';
+    case 10:
+      return 'Rejoindre';
+    case 20:
+      return 'Résultats';
+    default:
+      return 'Indéfini';
+  }
+};
+
+// Fonction pour récupérer la couleur du bouton d'état
+const getButtonColor = (etat: number): Color => {
+  switch (etat) {
+    case 0:
+      return Color.GREY;
+    case 10:
+      return Color.ORANGE;
+    case 20:
+      return Color.GREEN;
+    default:
+      return Color.GREY;
+  }
+};
