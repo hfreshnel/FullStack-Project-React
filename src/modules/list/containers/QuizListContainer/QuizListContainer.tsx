@@ -75,6 +75,9 @@ const QuizListContainer: React.FC = () => {
     },
   ];
 
+  // Récupérer le rôle depuis le localStorage
+  const role = localStorage.getItem('role');
+
   useEffect(() => {
     const fetchQuizData = async () => {
       setIsLoading(true);
@@ -127,11 +130,22 @@ const QuizListContainer: React.FC = () => {
         <div className='quiz-list-container'>
           {quiz &&
             quiz.map((quiz: IQuizEntity, id: number) => (
-              <div className={'question-container'} key={'question-' + id}>
+              <div className='question-container' key={'question-' + id}>
                 <Link
-                  to={'/list/questions/' + quiz.id}
-                  className={'quiz-link-to-create quiz-item'}
-                  key={quiz.id}
+                  to={
+                    quiz.etat === 10 || quiz.etat === 20
+                      ? `/list/questions/${quiz.id}`
+                      : '#'
+                  }
+                  className='quiz-link-to-create quiz-item'
+                  onClick={e => {
+                    if (quiz.etat === 0) {
+                      e.preventDefault(); // Empêche la navigation si l'état est 0
+                    }
+                  }}
+                  style={{
+                    cursor: quiz.etat === 0 ? 'not-allowed' : 'pointer',
+                  }}
                 >
                   <TextButton
                     label={quiz.libelle}
@@ -140,31 +154,37 @@ const QuizListContainer: React.FC = () => {
                     className='quiz-item-button quiz-item-button-state'
                   />
                 </Link>
-                <Link
-                  to={'/live'}
-                  className={'go-to-live-button'}
-                  key={'go-to-live-' + quiz.id}
-                >
-                  <IconButton
-                    icon={faCaretRight}
-                    bgColor={Color.TRANSPARENT}
-                    iconColor={Color.GREEN}
-                    borderColor={Color.TRANSPARENT}
-                    tooltip={'Démarrer le quiz'}
-                    className={'quiz-item-icon'}
-                  />
-                </Link>
+                {role === '0' && quiz.etat === 0 ? (
+                  <Link
+                    to={'/live'}
+                    className='go-to-live-button'
+                    key={'go-to-live-' + quiz.id}
+                  >
+                    <IconButton
+                      icon={faCaretRight}
+                      bgColor={Color.TRANSPARENT}
+                      iconColor={Color.GREEN}
+                      borderColor={Color.TRANSPARENT}
+                      tooltip={'Démarrer le quiz'}
+                      className='quiz-item-icon'
+                    />
+                  </Link>
+                ) : (
+                  <div className='quiz-item-button-placeholder'></div>
+                )}
               </div>
             ))}
         </div>
-        <Link to={'/create/quiz'} className={'quiz-link-to-create'}>
-          <TextButton
-            label='Créer un nouveau quiz'
-            bgColor={Color.WHITE}
-            textColor={Color.BLUE}
-            borderColor={Color.BLUE}
-          />
-        </Link>
+        {role === '1000' && (
+          <Link to={'/create/quiz'} className='quiz-link-to-create'>
+            <TextButton
+              label='Créer un nouveau quiz'
+              bgColor={Color.WHITE}
+              textColor={Color.BLUE}
+              borderColor={Color.BLUE}
+            />
+          </Link>
+        )}
       </div>
     </>
   );

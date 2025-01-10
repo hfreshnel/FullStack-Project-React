@@ -23,6 +23,7 @@
 }
 
 .quiz-link-to-create {
+  text-decoration: none;
   width: 95%;
 }
 
@@ -58,4 +59,10 @@
 .quiz-item-icon svg {
   width: 6rem;
   height: 4rem;
+}
+
+.quiz-item-button-placeholder {
+  width: 50px;
+  height: 20px;
+  flex-shrink: 0;
 }
