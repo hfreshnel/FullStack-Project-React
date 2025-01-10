@@ -8,6 +8,7 @@ import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
 import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
+import { IQuizEntity } from '../../../../common/entities/IQuizEntity.ts';
 
 const getButtonLabel = (etat: number): string => {
   switch (etat) {
@@ -80,14 +81,17 @@ const QuizListContainer: React.FC = () => {
       setError(null);
 
       try {
-        const response = await fetch(`http://10.3.70.13:8080/public/quiz`, {
-          method: 'GET',
-          headers: {
-            Accept: '*/*',
-            Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
+        const response = await fetch(
+          import.meta.env.VITE_API_URL + `/public/quiz`,
+          {
+            method: 'GET',
+            headers: {
+              Accept: '*/*',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
+            },
           },
-        });
+        );
 
         console.log(response);
 
@@ -98,6 +102,8 @@ const QuizListContainer: React.FC = () => {
         const data = await response.json();
         if (data && data.data) {
           console.log(data.data);
+          setQuiz(data.data);
+          console.log(quiz);
         } else {
           setQuiz(null);
           setError('Aucun quiz trouvé.');
@@ -119,36 +125,37 @@ const QuizListContainer: React.FC = () => {
       <div className='quiz-list-title-container'>
         <h1 className='quiz-list-title'>Liste des Quiz</h1>
         <div className='quiz-list-container'>
-          {quizList.map((quiz, id) => (
-            <div className={'question-container'} key={'question-' + id}>
-              <Link
-                to={'/list/questions/' + quiz.id}
-                className={'quiz-link-to-create quiz-item'}
-                key={quiz.id}
-              >
-                <TextButton
-                  label={getButtonLabel(quiz.etat)}
-                  bgColor={getButtonColor(quiz.etat)}
-                  textColor={Color.WHITE}
-                  className='quiz-item-button quiz-item-button-state'
-                />
-              </Link>
-              <Link
-                to={'/live'}
-                className={'go-to-live-button'}
-                key={'go-to-live-' + quiz.id}
-              >
-                <IconButton
-                  icon={faCaretRight}
-                  bgColor={Color.TRANSPARENT}
-                  iconColor={Color.GREEN}
-                  borderColor={Color.TRANSPARENT}
-                  tooltip={'Démarrer le quiz'}
-                  className={'quiz-item-icon'}
-                />
-              </Link>
-            </div>
-          ))}
+          {quiz &&
+            quiz.map((quiz: IQuizEntity, id: number) => (
+              <div className={'question-container'} key={'question-' + id}>
+                <Link
+                  to={'/list/questions/' + quiz.id}
+                  className={'quiz-link-to-create quiz-item'}
+                  key={quiz.id}
+                >
+                  <TextButton
+                    label={quiz.libelle}
+                    bgColor={getButtonColor(quiz.etat)}
+                    textColor={Color.WHITE}
+                    className='quiz-item-button quiz-item-button-state'
+                  />
+                </Link>
+                <Link
+                  to={'/live'}
+                  className={'go-to-live-button'}
+                  key={'go-to-live-' + quiz.id}
+                >
+                  <IconButton
+                    icon={faCaretRight}
+                    bgColor={Color.TRANSPARENT}
+                    iconColor={Color.GREEN}
+                    borderColor={Color.TRANSPARENT}
+                    tooltip={'Démarrer le quiz'}
+                    className={'quiz-item-icon'}
+                  />
+                </Link>
+              </div>
+            ))}
         </div>
         <Link to={'/create/quiz'} className={'quiz-link-to-create'}>
           <TextButton

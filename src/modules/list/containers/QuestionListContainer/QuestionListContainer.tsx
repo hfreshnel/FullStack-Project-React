@@ -30,10 +30,10 @@ interface Quiz {
 const isAdmin = true;
 
 const QuestionListContainer = () => {
-  const { id } = useParams<{ id: string }>(); // Récupérer l'ID du quiz depuis l'URL
-  const [quiz, setQuiz] = useState<Quiz | null>(null); // État pour stocker le quiz sélectionné
-  const [error, setError] = useState<string | null>(null); // État pour gérer les erreurs de chargement
-  const [isLoading, setIsLoading] = useState(true); // État pour afficher un indicateur de chargement
+  const { id } = useParams<{ id: string }>();
+  const [quiz, setQuiz] = useState<Quiz | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuizData = async () => {
@@ -41,14 +41,17 @@ const QuestionListContainer = () => {
       setError(null);
 
       try {
-        const response = await fetch(`http://10.3.70.13:8080/public/quiz`, {
-          method: 'GET',
-          headers: {
-            Accept: '*/*',
-            Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
+        const response = await fetch(
+          import.meta.env.VITE_API_URL + `/public/quiz`,
+          {
+            method: 'GET',
+            headers: {
+              Accept: '*/*',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
+            },
           },
-        });
+        );
 
         if (!response.ok) {
           throw new Error('Erreur lors de la récupération des données.');
@@ -80,11 +83,7 @@ const QuestionListContainer = () => {
     <div className={'question-list-container'}>
       <MainMenu />
       <div className={'question-list-container-content'}>
-        {isLoading ? (
-          <p>Chargement...</p>
-        ) : error ? (
-          <p>{error}</p>
-        ) : quiz ? (
+        {quiz && (
           <>
             <div className='quiz-title-container'>
               <MainCard
@@ -93,7 +92,6 @@ const QuestionListContainer = () => {
                 textColor={Color.BLUE}
               />
             </div>
-            {/* Liste des questions */}
             <div className='questions-list'>
               {quiz.questions.map(question => (
                 <div key={question.id} className='bar-container'>
@@ -119,8 +117,6 @@ const QuestionListContainer = () => {
               ))}
             </div>
           </>
-        ) : (
-          <p>Aucun quiz trouvé pour l'ID : {id}</p>
         )}
       </div>
     </div>

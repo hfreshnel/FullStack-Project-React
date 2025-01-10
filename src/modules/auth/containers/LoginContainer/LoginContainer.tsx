@@ -28,9 +28,11 @@ const LoginContainer = () => {
 
       if (response.ok) {
         const token = result.data?.token;
+        const role = result.data?.role;
         if (token) {
           // Stocker le token dans le localStorage
           localStorage.setItem('authToken', token);
+          localStorage.setItem('role', role);
           console.log('Login réussi. Token stocké dans le local storage.');
 
           // Redirection vers /list/quiz
