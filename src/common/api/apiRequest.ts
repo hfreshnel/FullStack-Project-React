@@ -32,7 +32,6 @@ export const apiRequest = async <T>(
       ...config,
     };
     const response = await axiosInstance(axiosConfig);
-    console.log('responseresponse', response);
     const responseData: TApiResponse<T> = response.data;
     if (responseData.error) {
       throwTypedError(responseData.error, responseData.code);
@@ -43,7 +42,8 @@ export const apiRequest = async <T>(
     let errorType: ErrorTypeEnum = ErrorTypeEnum.unknown;
     let errorCode: number = 400;
     if (axios.isAxiosError(error) && error) {
-      error.code ==="ERR_NETWORK" && throwTypedError(ErrorTypeEnum.unknown, 404);
+      error.code === 'ERR_NETWORK' &&
+        throwTypedError(ErrorTypeEnum.unknown, 404);
       errorType = error.response?.data;
       const parsedError = error.code ? parseInt(error.code) : 400;
       errorCode = parsedError;

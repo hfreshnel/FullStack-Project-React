@@ -94,7 +94,6 @@ const useFetchData = (props: TuseFetchDataProps) => {
 
       return response;
     } catch (err: any) {
-      console.log('cateched error', err);
       // Transform the caught error into the TError structure
       const transformedError: TError = {
         statusCode: err.statusCode || 500,

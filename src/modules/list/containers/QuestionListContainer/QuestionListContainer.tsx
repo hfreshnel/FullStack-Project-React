@@ -47,6 +47,8 @@ const QuestionListContainer = () => {
             method: 'GET',
             headers: {
               Accept: '*/*',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
             },
           },
         );

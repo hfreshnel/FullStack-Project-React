@@ -15,8 +15,6 @@ const useAuthRepository = (props: TuseAuthRepositoryProps) => {
   const Rsignin = async (request: TSigninRequest): Promise<TSigninResponse> => {
     const response = await Ssignin(request);
 
-    localStorage.setItem(LOCALSTORAGE_USER, JSON.stringify(response));
-
     return response;
   };
   const Rsignout = async (
