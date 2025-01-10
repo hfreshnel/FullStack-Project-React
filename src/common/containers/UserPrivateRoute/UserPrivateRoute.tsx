@@ -1,10 +1,9 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { LOCALSTORAGE_USER } from '../../utils/consts/consts';
-import { TUserPrivateRouteProps } from './types/TUserPrivateRouteProps';
 
 export default function UserPrivateRoute() {
   const isAuthenticated = () => {
-    const user = localStorage.getItem(LOCALSTORAGE_USER);
+    const user = localStorage.getItem('authToken');
     return user !== null;
   };
 

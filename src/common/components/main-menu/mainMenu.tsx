@@ -55,6 +55,10 @@ export default function MainMenu() {
           iconColor={Color.RED}
           tooltip={'Déconnexion'}
           className={'logout-button'}
+          onClick={() => {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('role');
+          }}
         />
       </Link>
     </div>
