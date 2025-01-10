@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './QuestionListContainer.css';
+import '../QuizListContainer/QuizListContainer.css';
 import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
 import MainCard from '../../../../common/components/main-card/MainCard.tsx';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
@@ -27,7 +28,8 @@ interface Quiz {
   questions: Question[];
 }
 
-const isAdmin = true;
+const isAdmin = (localStorage.getItem("role") === "1");
+
 
 const QuestionListContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -36,13 +38,16 @@ const QuestionListContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    console.log('QuestionListContainer monté avec ID :', id);
+  
     const fetchQuizData = async () => {
       setIsLoading(true);
       setError(null);
-
+  
       try {
+        console.log('API URL :', import.meta.env.VITE_API_URL);
         const response = await fetch(
-          import.meta.env.VITE_API_URL + `/public/quiz`,
+          `${import.meta.env.VITE_API_URL}/public/quiz/${id}`,
           {
             method: 'GET',
             headers: {
@@ -52,12 +57,14 @@ const QuestionListContainer = () => {
             },
           },
         );
-
+  
         if (!response.ok) {
           throw new Error('Erreur lors de la récupération des données.');
         }
-
+  
         const data = await response.json();
+        console.log('Réponse API :', data);
+  
         if (data && data.data) {
           setQuiz({
             id: data.data.id,
@@ -69,15 +76,16 @@ const QuestionListContainer = () => {
           setError('Aucun quiz trouvé.');
         }
       } catch (err) {
-        console.error(err);
+        console.error('Erreur lors de la récupération des données :', err);
         setError('Une erreur est survenue lors du chargement du quiz.');
       } finally {
         setIsLoading(false);
       }
     };
-
+  
     fetchQuizData();
   }, [id]);
+  
 
   return (
     <div className={'question-list-container'}>
@@ -96,7 +104,7 @@ const QuestionListContainer = () => {
               {quiz.questions.map(question => (
                 <div key={question.id} className='bar-container'>
                   <div className='bar-row'>
-                    <Link to={`/list/answer/${question.id}`} className='bar'>
+                    <Link to={`/list/answer/${question.id}`} className='quiz-link-to-create quiz-item' >
                       <TextButton
                         label={question.libelle}
                         textColor={Color.WHITE}
