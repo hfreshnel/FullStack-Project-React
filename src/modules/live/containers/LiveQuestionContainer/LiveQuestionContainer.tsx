@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainCard from '../../../../common/components/main-card/MainCard.tsx';
 import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
@@ -8,16 +8,21 @@ import './LiveQuestionContainer.css';
 
 const LiveQuestionContainer = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [isTimeUp, setIsTimeUp] = useState(false);
 
-  // Function to handle button click
   const handleAnswerClick = (answer: string) => {
-    // If the same answer is clicked, deselect it (set to null)
-    if (selectedAnswer === answer) {
-      setSelectedAnswer(null);
-    } else {
-      setSelectedAnswer(answer); // Update the selected answer
-    }
+    setSelectedAnswer(answer);
   };
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setIsTimeUp(true);
+    }
+  }, [timeLeft]);
 
   return (
     <div className={'quiz-create-container'}>
@@ -32,6 +37,7 @@ const LiveQuestionContainer = () => {
           cardSize={Size.LARGE}
         ></MainCard>
       </div>
+      <div className='timer'>Temps restant : {timeLeft}s</div>
       <div className='reposes-container'>
         <TextButton
           className={`Repose1 ${selectedAnswer === 'Repose1' ? 'selected' : ''}`}
@@ -70,16 +76,18 @@ const LiveQuestionContainer = () => {
           onClick={() => handleAnswerClick('Repose4')}
         />
       </div>
-      <div className='button'>
-        <TextButton
-          className='terminer'
-          label={'Terminer la question'}
-          bgColor={Color.BLUE}
-          borderColor={Color.BLUE}
-          btnSize={Size.SMALL}
-          textColor={Color.WHITE}
-        />
-      </div>
+      {!isTimeUp && (
+        <div className='button'>
+          <TextButton
+            className='terminer'
+            label={'Terminer la question'}
+            bgColor={Color.BLUE}
+            borderColor={Color.BLUE}
+            btnSize={Size.SMALL}
+            textColor={Color.WHITE}
+          />
+        </div>
+      )}
     </div>
   );
 };
