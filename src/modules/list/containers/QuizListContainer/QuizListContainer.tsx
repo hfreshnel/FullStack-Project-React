@@ -38,42 +38,9 @@ const getButtonColor = (etat: number): Color => {
 };
 
 const QuizListContainer: React.FC = () => {
-  const [quiz, setQuiz] = useState<any | null>(null); // État pour stocker le quiz sélectionné
-  const [error, setError] = useState<string | null>(null); // État pour gérer les erreurs de chargement
-  const [isLoading, setIsLoading] = useState(true); // État pour afficher un indicateur de chargement
-
-  const quizList = [
-    {
-      id: 1,
-      libelle: 'Quiz 1',
-      etat: QuizEtatEnum.PENDING,
-      dateDebutQuiz: new Date('2023-12-01T10:00:00'),
-      noQuestionCourante: 2,
-      etape: EtapeEnum.SHOW_QUESTION,
-      dateDebutQuestion: new Date('2023-12-01T10:05:00'),
-      questions: [],
-    },
-    {
-      id: 2,
-      libelle: 'Quiz 2',
-      etat: QuizEtatEnum.DONE,
-      dateDebutQuiz: new Date('2023-11-20T15:00:00'),
-      noQuestionCourante: 0,
-      etape: EtapeEnum.SHOW_STATS,
-      dateDebutQuestion: new Date('2023-11-20T15:30:00'),
-      questions: [],
-    },
-    {
-      id: 3,
-      libelle: 'Quiz 3',
-      etat: QuizEtatEnum.INACTIVE,
-      dateDebutQuiz: new Date('2023-12-05T14:00:00'),
-      noQuestionCourante: 0,
-      etape: EtapeEnum.SHOW_ANSWERS,
-      dateDebutQuestion: new Date('2023-12-05T14:00:00'),
-      questions: [],
-    },
-  ];
+  const [quiz, setQuiz] = useState<any | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuizData = async () => {
@@ -87,8 +54,9 @@ const QuizListContainer: React.FC = () => {
             method: 'GET',
             headers: {
               Accept: '*/*',
-              Authorization:
-                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
+
+              Authorization: 'Bearer ' + localStorage.getItem('authToken'),
+
             },
           },
         );
@@ -141,7 +109,7 @@ const QuizListContainer: React.FC = () => {
                   />
                 </Link>
                 <Link
-                  to={'/live'}
+                  to={'http://10.3.70.5:3000/Deroulement1/' + quiz.id}
                   className={'go-to-live-button'}
                   key={'go-to-live-' + quiz.id}
                 >

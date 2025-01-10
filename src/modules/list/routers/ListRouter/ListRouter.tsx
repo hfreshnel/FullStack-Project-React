@@ -8,7 +8,7 @@ const ListRouter = () => {
     <Routes>
       <Route path='/quiz' element={<QuizListContainer />} />
       <Route path='/questions/:id' element={<QuestionListContainer />} />
-      <Route path='/answer' element={<AnswerListContainer />} />
+      <Route path='/answer/:id' element={<AnswerListContainer />} />
     </Routes>
   );
 };
