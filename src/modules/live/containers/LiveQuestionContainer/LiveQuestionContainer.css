@@ -1,3 +1,53 @@
 .quiz-create-container-content {
     margin-left: 100px;
 }
+.quiz {
+    margin-bottom: 20px;
+    font-size: 70px !important;
+    justify-content: center;
+    align-items: center;
+}
+.titre {
+    font-size: 50px !important;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+.reposes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Repose1,
+.Repose2,
+.Repose3,
+.Repose4 {
+    margin-top: 30px;
+    margin-left: 50px !important;
+    font-size: 50px !important;
+    width: 40% !important;
+    height: 100px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.terminer {
+    font-size: 40px !important;
+    margin-top: 30px;
+    margin-left: 35px;
+    width: auto;
+    height: 100px;
+}

@@ -41,17 +41,14 @@ const QuestionListContainer = () => {
       setError(null);
 
       try {
-        const response = await fetch(
-          `http://10.3.70.13:8080/public/quiz/${id}`,
-          {
-            method: 'GET',
-            headers: {
-              Accept: '*/*',
-              Authorization:
-                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
-            },
+        const response = await fetch(`http://10.3.70.13:8080/public/quiz`, {
+          method: 'GET',
+          headers: {
+            Accept: '*/*',
+            Authorization:
+              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJpYXQiOjE3MzY1MDE3NDMsImV4cCI6MTczNjU4ODE0M30.fU9Isa6eA2ZuncZg0D4TY8OJrsNiY7bBye_laQVgGRY',
           },
-        );
+        });
 
         if (!response.ok) {
           throw new Error('Erreur lors de la récupération des données.');
