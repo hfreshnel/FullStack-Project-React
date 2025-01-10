@@ -5,15 +5,11 @@ import { EtapeEnum } from '../../../../common/enums/EtapeEnum';
 import TextButton from '../../../../common/components/text-button/TextButton.tsx';
 import { Color } from '../../../../common/enums/Color.ts';
 import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
-import { useNavigate } from 'react-router-dom';
 import IconButton from '../../../../common/components/icon-button/IconButton.tsx';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const QuizListContainer: React.FC = () => {
-  const navigate = useNavigate();
-  const isAdmin = true;
-
   const quizList = [
     {
       id: 1,
@@ -53,10 +49,10 @@ const QuizListContainer: React.FC = () => {
       <div className='quiz-list-title-container'>
         <h1 className='quiz-list-title'>Liste des Quiz</h1>
         <div className='quiz-list-container'>
-          {quizList.map(quiz => (
-            <>
+          {quizList.map((quiz, id) => (
+            <div className={'question-container'} key={id}>
               <Link
-                to={'/list/question/' + quiz.id}
+                to={'/list/questions/' + quiz.id}
                 className={'quiz-link-to-create quiz-item'}
                 key={quiz.id}
               >
@@ -67,11 +63,7 @@ const QuizListContainer: React.FC = () => {
                   className='quiz-item-button'
                 />
               </Link>
-              <Link
-                to={'/live'}
-                className={'quiz-link-to-create quiz-item'}
-                key={quiz.id}
-              >
+              <Link to={'/live'} className={'go-to-live-button'} key={quiz.id}>
                 <IconButton
                   icon={faCaretRight}
                   bgColor={Color.TRANSPARENT}
@@ -81,7 +73,7 @@ const QuizListContainer: React.FC = () => {
                   className={'quiz-item-icon'}
                 />
               </Link>
-            </>
+            </div>
           ))}
         </div>
         <Link to={'/create/quiz'} className={'quiz-link-to-create'}>
