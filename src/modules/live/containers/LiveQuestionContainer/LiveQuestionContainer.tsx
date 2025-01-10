@@ -11,7 +11,12 @@ const LiveQuestionContainer = () => {
 
   // Function to handle button click
   const handleAnswerClick = (answer: string) => {
-    setSelectedAnswer(answer); // Update the selected answer
+    // If the same answer is clicked, deselect it (set to null)
+    if (selectedAnswer === answer) {
+      setSelectedAnswer(null);
+    } else {
+      setSelectedAnswer(answer); // Update the selected answer
+    }
   };
 
   return (
