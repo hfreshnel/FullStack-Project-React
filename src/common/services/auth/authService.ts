@@ -13,7 +13,6 @@ export const Ssignup = async (request: TSignupRequest) => {
     MethodEnum.POST,
     request,
   );
-  console.log('reponse', response);
   const mockData: TSignupResponse | null = {
     user: {
       id: 0,
