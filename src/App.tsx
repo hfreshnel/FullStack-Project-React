@@ -5,6 +5,7 @@ import UserPrivateRoute from './common/containers/UserPrivateRoute/UserPrivateRo
 import CreateRouter from './modules/create/routers/CreateRouter/CreateRouter.tsx';
 import ListRouter from './modules/list/routers/ListRouter/ListRouter.tsx';
 import ProfileRouter from './modules/profile/routers/ProfileRouter/ProfileRouter.tsx';
+import LiveQuestionContainer from './modules/live/containers/LiveQuestionContainer/LiveQuestionContainer.tsx';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Route element={<UserPrivateRoute />}>
           <Route path='/create/*' element={<CreateRouter />} />
           <Route path='/list/*' element={<ListRouter />} />
+          <Route path='/live/' element={<LiveQuestionContainer />} />
           <Route path='/profile/*' element={<ProfileRouter />} />
         </Route>
         <Route path='/auth/*' element={<AuthRouter />} />
