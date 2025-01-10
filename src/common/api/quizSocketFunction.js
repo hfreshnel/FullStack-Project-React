@@ -1,4 +1,4 @@
-import { fetchQuestion, fetchStatistique, fetchClassement } from '../API/Fetching';
+import { fetchQuestion, fetchStatistique, fetchClassement } from './fetching';
 
 export const joinQuiz = (socket, setQuizId, id) => {
   setQuizId(id);
@@ -49,9 +49,9 @@ export const afficherQuestionSuivante = async (socket, quizId, currentQuestionId
 export const afficherStatistique = async (socket, quizId, setStatistique,question_id, setMessage) => {
   const stats = await fetchStatistique(quizId,question_id);
   if (stats) {
-    setStatistique(stats);
-    setMessage(JSON.stringify(stats));
-    socket.emit('showStatistique', { quizId, statistiques: stats });
+    setStatistique(stats.data);
+    setMessage(JSON.stringify(stats.data));
+    socket.emit('showStatistique', { quizId, statistiques: stats.data });
   } else {
     console.error('Aucune statistique disponible.');
   }
@@ -59,10 +59,10 @@ export const afficherStatistique = async (socket, quizId, setStatistique,questio
 
 export const afficherClassement = async (socket, quizId, setClassement, setMessage) => {
   const classement = await fetchClassement(quizId);
-  if (classement) {
-    setClassement(classement);
-    setMessage(JSON.stringify(classement));
-    socket.emit('showClassement', { quizId, classement: classement });
+  if (classement.data) {
+    setClassement(classement.data);
+    setMessage(JSON.stringify(classement.data));
+    socket.emit('showClassement', { quizId, classement: classement.data });
   } else {
     console.error('Aucune statistique disponible.');
   }
