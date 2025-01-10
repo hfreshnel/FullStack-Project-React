@@ -1,14 +1,16 @@
 .questions-list {
     display: flex;
-    flex-direction: column; /* Aligner les boutons verticalement */
-    align-items: center;    /* Centrer les boutons horizontalement */
-    gap: 10px;              /* Espacement entre les boutons */
-    width: 40%;
-    margin-left: 30%;
+    flex-direction: column;       /* Aligner les éléments verticalement */
+    align-items: stretch;         /* Étirer les éléments pour prendre toute la largeur */
+    gap: 5px;                    /* Espacement entre les lignes */
+    width: 100%;                  /* Prendre toute la largeur disponible */
+    max-width: 800px;             /* Limiter la largeur maximale */
+    margin: 0 auto;               /* Centrer la liste horizontalement */
     background: white;
-    border-radius: 20px;    /* Coins arrondis */
-    padding: 9px;
-}
+    padding: 5px;                /* Ajout de padding pour un espacement interne */
+    border-radius: 10px;          /* Coins arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre légère */
+  }
 
 .question-button {
     width: 80%;

@@ -1,58 +1,57 @@
-.titre {
-    margin-top: 50px;
-    margin-left: 650px;
+.answer-list-container {
+    display: flex; /* Disposition avec le menu principal à gauche */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-menu {
+    flex: 0 0 200px; /* Largeur fixe du menu */
+    margin-right: 20px; /* Espacement avec le contenu principal */
+  }
+  
+  .content {
+    flex: 1; /* Contenu principal prend tout l'espace restant */
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 1000px;
-    height: 50px !important;
-}
-
-.icon {
-    font-size: 80px !important;
-}
-
-.titre-nom {
-    font-size: 70px !important;
-    width: 500px !important;
-}
-
-.question-list-container-content {
-    width: 900px;
-    margin-top: 50px;
-    margin-left: 450px;
-    height: 500px;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement */
+  }
+  
+  .titre-nom {
+    font-size: 60px; /* Texte plus grand */
+    font-weight: bold; /* Gras */
+    text-align: center; /* Centrer horizontalement */
+    margin-bottom: 30px; /* Espacement en bas */
+    margin-top: 20px; /* Espacement en haut pour aérer */
+  }
+  
+  .question-list-container-content {
     display: flex;
-    flex-wrap: wrap;
-}
-.contenu {
-    width: 900px !important;
-    height: 550px !important;
-    position: fixed;
-    display: flex;
-}
-.choix {
-    margin-left: 50px;
-    width: 700px !important;
-    margin-top: 40px;
-    height: 60px;
-    position: relative;
-    z-index: 1;
-    font-size: 50px !important;
-}
-
-.edit {
-    margin-top: 50px;
-    font-size: 60px !important;
-    position: relative;
-    margin-left: 20px;
-
-    z-index: 2;
-}
-.button-sauvegarder {
-    margin-top: 100px;
-    margin-left: 550px;
-    width: 700px !important;
-    font-size: 50px !important;
-    height: 100px;
-}
+    flex-direction: column;
+    gap: 20px; /* Espacement entre les réponses */
+    width: 100%; /* Prendre toute la largeur disponible */
+    max-width: 800px; /* Limite la largeur maximale */
+  }
+  
+  .choix {
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5rem; /* Augmente la taille des réponses */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .choix:hover {
+    opacity: 0.9;
+  }
+  
+  .button-sauvegarder {
+    margin-top: 20px;
+    align-self: center;
+    width: 50%;
+  }
+  
