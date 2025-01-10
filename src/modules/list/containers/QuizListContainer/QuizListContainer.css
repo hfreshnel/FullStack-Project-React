@@ -1,5 +1,4 @@
 .quiz-list-title-container {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -8,6 +7,11 @@
   justify-self: center;
   background-color: var(--secondary-white);
   gap: 1rem;
+}
+
+.question-container {
+  width: 100%;
+  display: flex;
 }
 
 .quiz-list-title {
@@ -19,7 +23,11 @@
 }
 
 .quiz-link-to-create {
-  width: 100%;
+  width: 95%;
+}
+
+.go-to-live-button {
+  width: 5%;
 }
 
 .quiz-list-container {

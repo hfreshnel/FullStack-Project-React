@@ -14,7 +14,6 @@ export const throwTypedError = (
     message,
     type,
   };
-  console.log('errorToThrow', error);
 
   throw error;
 };

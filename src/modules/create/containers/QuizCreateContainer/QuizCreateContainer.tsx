@@ -1,6 +1,5 @@
 import MainMenu from '../../../../common/components/main-menu/mainMenu.tsx';
 import './QuizCreateContainer.css';
-import Chart from '../../../../common/components/charts/Chart.tsx';
 
 const QuizCreateContainer = () => {
   return (

@@ -39,6 +39,7 @@ const LoginForm = ({ handleSignin }: TLoginFormProps) => {
         bgColor={Color.BLUE}
         textColor={Color.WHITE}
         className={'login-button'}
+        type={'submit'}
       />
     </form>
   );
